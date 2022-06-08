@@ -1,0 +1,64 @@
+---
+title: Youth Labor Index for Low Income Countries
+author: 
+  - name: Bart Kudrzycki, Erwin Lefoll
+    affiliation: Development Economics Group, ETH Zurich, Switzerland, <bartlomiej.kudrzycki@nadel.ethz.ch>
+  - name: Erwin Lefoll
+    affiliation: Development Economics Group, ETH Zurich, Switzerland, <erwin.lefoll@nadel.ethz.ch>
+  - name: Isabel Günther
+    affiliation: Development Economics Group, ETH Zurich, Switzerland, <isabel.guenther@nadel.ethz.ch>
+header-includes:
+  - \usepackage{setspace}
+date: \today
+abstract: |
+thanks: |
+  Thanks to Dario for the Markdown template.
+keywords: [Informal labor markets, Dual training, Apprenticeship]
+jel: [I26]
+bibliography: index.bib
+csl: 'apa-no-ampersand.csl'
+output: 
+  bookdown::pdf_document2:
+    latex_engine: xelatex
+    template: template.tex
+    extra_dependencies: ["flafter", "placeins"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE,
+                      warning=FALSE,
+                      echo = FALSE,
+                      cache = TRUE,
+                      fig.path='figures/',
+                      out.extra = "",
+                      floatfoot.envs = c("figure", "table", "longtabu")) 
+
+options(scipen=2, digits=2)
+```
+
+```{r loadlibraries, include=FALSE, cache = FALSE}
+suppressMessages(library(stargazer))
+library(bookdown)
+library(gtsummary)
+suppressMessages(library(tidyverse))
+
+```
+
+```{r loaddata, include=FALSE}
+# rerun all code periodically
+# source("../code/master.R")
+#load("../data/df.rda")
+#selected <- df %>% filter(SELECTED == 1)
+# load functions
+source("../functions/add_by_n.R")
+ggplot2::theme_set(ggplot2::theme_bw())  ## (sets the ggplot2 theme to theme_bw)
+```
+
+
+# References {.unnumbered}
+\noindent
+
+<div id="refs"></div>
+
+# Appendix {.unnumbered}
+

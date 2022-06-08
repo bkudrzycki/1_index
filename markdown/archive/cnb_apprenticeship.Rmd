@@ -1,0 +1,519 @@
+---
+title: Benefits and Costs of (Dual) Apprenticeship in an Informal Setting
+author: 
+  - name: Bart Kudrzycki
+    affiliation: Development Economics Group, ETH Zurich, Switzerland, <bartlomiej.kudrzycki@nadel.ethz.ch>
+date: \today
+abstract: |
+   You can include the text for your abstract here. 
+thanks: |
+  Thanks to Dario for the Markdown template.
+keywords: [Keyword A, Keyword B, Keyword, C]
+jel: [I24, I32, J15, J16]
+bibliography: cqp-bib.bib
+csl: 'apa-no-ampersand.csl'
+output: 
+  bookdown::pdf_document2:
+    latex_engine: xelatex
+    template: template.tex
+    extra_dependencies: ["flafter", "placeins"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE,
+                      warning=FALSE,
+                      echo = FALSE, 
+                      fig.path='figures/', 
+                      floatfoot.envs = c("figure", "table", "longtabu"),
+                      root.dir = '/Users/kudrzycb/polybox/Youth Employment/2 CQP/Paper') 
+
+options(scipen=2, digits=2)
+
+ggplot2::theme_set(ggplot2::theme_bw())  ## (this just globally sets the ggplot2 theme to theme_bw)
+```
+
+```{r load, include=FALSE}
+packages <- c("tidyverse", "gtsummary", "stargazer", "haven") #bookdown
+invisible(lapply(packages, library, character.only = TRUE))
+rm(packages)
+
+# load data or run cleaning file in case file does not exist
+if (!file.exists("../data/df.Rda")) {
+  source("../code/recode.R")
+}
+
+load('../data/df.rda')
+
+df_labels <- haven::as_factor(df)
+
+cqp_only <- df %>% filter(cqp == "CQP")
+trad_only <- df_labels %>% filter(cqp == "Non-CQP")
+selected_only <- df_labels %>% filter(SELECTED == "Selected")
+nonsel_only <- df_labels %>% filter(SELECTED == "Not Selected")
+non_cqp <- df_labels %>% filter(SELECTED!= "Selected")
+
+fmt_pvalue_with_stars <- function(x) {
+  dplyr::case_when(
+    x < 0.001 ~ paste0(style_pvalue(x), "***"),
+    x < 0.01 ~ paste0(style_pvalue(x), "**"),
+    x < 0.05 ~ paste0(style_pvalue(x), "*"),
+    TRUE ~ style_pvalue(x)
+  )
+}
+
+```
+
+
+# Introduction {#introduction}
+
+Formal institutions and enterprises are not equipped to absorb this massive influx of youth into the labor market. Young men and women privileged enough to finish secondary school compete for scarce but lucrative public-sector jobs, while the vast majority of low-income youth searching for work opportunities are forced to turn to the informal (unregistered) sector at an early age.
+
+Participation in the informal sector is almost universally initiated with apprenticeships. 
+
+In the West, apprenticeships are seen as a key to reducing youth unemployment rates (in particular in German-speaking countries). In countries in which apprenticeship traditionally plays a lesser role in the education system, apprenticeship is being explored as a means to counteract youth unemployment and skills mismatch.
+
+In lower-income Sub-Saharan African countries, most employment opportunities are found in the informal sector. Shifting from a focus on formalization, policymakers have begun to explicitly integrate the informal sector into national employment strategies. Informal jobs are overwhelmingly the first work experiences for youth entering the labor market, and young workers represent a significant part of the informal sector.
+
+Early experimental evidence suggests that informal apprenticeships have positive impacts on both the trainee and the firm. @mccasland2016 randomly match apprentices to firms, and find that the firms increase in size and profitability. Each assigned apprentice increases firm size by about half a worker, and firm revenues and profits increase by 5-15% per apprentice. Firms not assigned an apprentice did not hire new workers, suggesting screening costs for firms are high. @alfonsi2020 find that training firms in Uganda become 11% more profitable, though they do not increase in size.
+
+Apprenticeship policy in developing countries generally involves a choice between three models: classroom-based vocational education and training (VET), "traditional" apprenticeships with a master craftsman, and a combination of the two, the so-called dual system model. While classroom VET is prone to challenges regarding market linkages (i.e. the relevance of acquired skills on the labor market) and state sponsorship of traditional apprenticeship is often met with the challenge of limited oversight and standardization, the dual system is equipped to address both challenges by providing both a channel for standardized curricula and a direct linkage to the labor market. However, the costs of dual training can be prohibitive for both microenterprises and cash-strapped governments, and many dual system programs, including the CQP, are reliant on external financing. @crepon2019 study a subsidized dual apprenticeship program in Côte d'Ivoire and report positive net displacement effects (i.e. subsidizing apprenticeships increase the training capacity of firms). Subsidized apprentices also receive more training, suggesting that subsidies may help address both the financial constraints facing apprentices and commitment failures on the part of firms.
+
+@alfonsi2020 compare outcomes for vocationally trained workers and traditional apprentices, and find increases in earnings and employment rates for both tracks. Traditional apprentices find employment more quickly and have higher earnings after graduation, but VET graduates catch up over time and outperform FT workers on average. The authors suggest that VET training increases graduates ability to "climb the job ladder" when moving between employers, whereas earnings are relatively stagnant for graduates of traditional apprenticeship, who are more likely to become self-employed as opposed to working for a wage.
+
+For low-income countries seeking to formalize their economy, a potential downside of sponsoring apprenticeships in the informal sector is that graduates are more likely to turn to self-employment in informal firms upon graduation, as reflected in the findings of @alfonsi2020. In another experimental study of informal apprenticeship focusing on the National Apprenticeship Program (NAP) in Ghana, @hardy2019 find that informal apprenticeships shift youth out of wage work and into self-employment, resulting in wage reductions of 3%. However, they do note a correlation between trainer experience and profitability and future apprentice earnings.
+
+
+
+In this paper, we raise three questions:
+
+1. Does participation in informal apprenticeship and/or dual training improve the skills and competencies of youth?
+
+2. Do informal firms benefit, in terms of firm size, profits and/or revenues, from training apprentices or sending their trainees to the CQP program?
+
+3. Do the benefits of informal apprenticeship in general and CQP dual training specifically outweigh their total costs to the training firm and, for the case of the CQP, the state sponsors?
+
+
+
+\FloatBarrier 
+
+# Context: Dual Apprenticeship in Benin {#background}
+
+### History of apprenticeship
+
+### History of CQP
+
+### Stakeholders; firms, FODEFCA
+
+### Recruitment, qualifications
+
+### Benefits, lack of wages, stipulations
+
+### A bit of theory
+
+
+\FloatBarrier
+
+
+# Data {#data}
+
+```{r descriptive1}
+df_labels %>% 
+  dplyr::select(SELECTED, cqp, wave) %>% 
+  labelled::to_factor() %>% 
+  tbl_summary(by = wave,
+              label = list(SELECTED ~ "Selection for CQP",
+                           cqp ~ "Participation in CQP"),
+              statistic = list(all_continuous() ~ "{mean} ({sd})",
+                               all_categorical() ~ "{n} ({p}%)"),
+              missing = "no") %>% 
+  as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+
+```{r descriptive2}
+df_labels %>% 
+  filter(wave == "Baseline") %>% 
+  dplyr::select(sex, baseline_age, schooling, cqp) %>%
+  tbl_summary(by = cqp,
+              label = list(sex ~ "Male",
+                           baseline_age ~ "Age",
+                           schooling ~ "Highest Level of Schooling"),
+              statistic = list(all_continuous() ~ "{mean} ({sd})",
+                               all_categorical() ~ "{n} ({p}%)"),
+              missing = "no") %>% 
+  as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+```{r descriptive3}
+df_labels %>% 
+  filter(wave == "Baseline",
+         SELECTED != "Did Not Apply") %>% 
+  dplyr::select(YS3.15, SELECTED) %>%
+  mutate(SELECTED = factor(SELECTED, labels = c("Selected", "Not Selected"))) %>% 
+  mutate(YS3.15 = as.numeric(YS3.15)) %>% 
+  tbl_summary(by = SELECTED,
+              label = list(YS3.15 ~ "Years of Schooling"),
+              statistic = list(all_continuous() ~ "{mean} ({sd})",
+                               all_categorical() ~ "{n} ({p}%)"),
+              missing = "no") %>% 
+  as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+# Methodology {#methods}
+
+In the absence of random assignment, we compare apprentices who submitted an application dossier to the CQP program but were not admitted (called nonparticipants) to those who and were admitted. All applicants were taken from the 2018 cohort. Trainers were also invited to answer questions about one apprentice who did NOT apply to the CQP. These apprentices were not interviewed themselves, as our sample for the youth interviews consisted of applicants to the CQP.
+
+To estimate the benefits in terms of productivity, we **assume** that apprentice productivity is an increasing step function. Productivity increases with experience. For the first two years, we assume apprentices are as productive as paid family workers
+
+
+
+
+
+\FloatBarrier
+
+# Results {#results}
+
+## Benefits to apprentice
+
+Benefits for apprentice are primarily measured in human capital gains (skills and experience) over time, as well as wages, allowances, and other material benefits from participating in apprenticeship.
+
+### Skills
+
+Gains in apprentice trade-related knowledge were measured with a battery of questions drawn from the relevant CQP curriculum for each trade. Knowledge questions were multiple choice, trade-specific, and designed to test familiarity with the tools and techniques directly related to the day-to-day performance of their craft. They included, for instance, the visual identification of a multimeter for electrical technicians or recalling the proper proportion of ingredients in a cement mixture for masons.
+
+Across all trades, apprentices answered `r df %>% filter(wave == "Baseline") %>% select(skills_all_trades) %>% colMeans(na.rm = T)*100`% of  knowledge questions correctly at baseline and `r df %>% filter(wave == "Endline") %>% select(skills_all_trades) %>% colMeans(na.rm = T)*100`% at endline, an increase of `r (df %>% filter(wave == "Endline") %>% select(skills_all_trades) %>% colMeans(na.rm = T) - df %>% filter(wave == "Baseline") %>% select(skills_all_trades) %>% colMeans(na.rm = T))*100`%. Differentiating between trades, we find that plumbing apprentices improved the most, with a `r (df %>% filter(wave == "Endline") %>% select(skills_plomb) %>% colMeans(na.rm = T) - df %>% filter(wave == "Baseline") %>% select(skills_plomb) %>% colMeans(na.rm = T))*100`% change in percentage of question correctly answered, followed by electrician apprentices with a `r (df %>% filter(wave == "Endline") %>% select(skills_elec) %>% colMeans(na.rm = T) - df %>% filter(wave == "Baseline") %>% select(skills_elec) %>% colMeans(na.rm = T))*100`% improvement, masons with `r (df %>% filter(wave == "Endline") %>% select(skills_macon) %>% colMeans(na.rm = T) - df %>% filter(wave == "Baseline") %>% select(skills_macon) %>% colMeans(na.rm = T))*100`%, carpenters with `r (df %>% filter(wave == "Endline") %>% select(skills_menuis) %>% colMeans(na.rm = T) - df %>% filter(wave == "Baseline") %>% select(skills_menuis) %>% colMeans(na.rm = T))*100`%, and metalworkers with `r (df %>% filter(wave == "Endline") %>% select(skills_metal) %>% colMeans(na.rm = T) - df %>% filter(wave == "Baseline") %>% select(skills_metal) %>% colMeans(na.rm = T))*100`%.
+
+```{r allskills}
+
+df %>% select(tidyselect::vars_select(names(df), matches(c('all_skills', 'skills', 'wave')))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean}",
+              missing = "no") %>% 
+  add_p(pvalue_fun = fmt_pvalue_with_stars) %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_caption("Apprentice Performance on Knowledge Questions") %>% 
+  as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position"))
+  
+```
+
+Table \@ref(tab:allskills) reports the endline-to-baseline improvement for each trade.
+
+## Competencies
+```{r allcomp}
+
+df %>% select(tidyselect::vars_select(names(df), matches(c('comp_all_trades', 'comp', 'wave')))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean}",
+              missing = "no") %>% 
+  add_p(pvalue_fun = fmt_pvalue_with_stars) %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_caption("Master Assessment of Apprentice Competencies") %>% 
+  as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position"))
+  
+```
+
+## Experience
+```{r allexp}
+
+df %>% select(tidyselect::vars_select(names(df), matches(c('exp_all_trades', 'exp', 'wave')))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean}",
+              missing = "no") %>% 
+  add_p(pvalue_fun = fmt_pvalue_with_stars) %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_caption("Apprentice Experience") %>% 
+  as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position"))
+  
+```
+
+
+## Benefits (to firm)
+
+Benefits accrued to firm include training fees and apprentice productivity.
+
+```{r fees}
+fees_tbl <- df %>% filter(cqp == 'CQP') %>% 
+  select(c("total_fees", "fee_entry", "fee_formation", "fee_liberation", "fee_materials", "fee_contract", "fee_application", "wave")) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean} ({N_nonmiss})",
+              missing = "no") %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_caption("Fees")
+
+fees_tbl2 <- df %>% filter(cqp == 'Non-CQP') %>% 
+  select(c("total_fees", "fee_entry", "fee_formation", "fee_liberation", "fee_materials", "fee_contract", "fee_application", "wave")) %>% 
+  mutate(wave = factor(wave, labels = c("Baseline", "Endline"))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean} ({N_nonmiss})",
+              missing = "no") %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>% 
+  modify_footnote(
+    all_stat_cols() ~ "All fees are in FCFA, as reported by the master trainer.")
+
+tbl_merge(list(fees_tbl, fees_tbl2), tab_spanner = c("CQP Apprentices", "Non-CQP Apprentices")) %>% as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+Fees Question: Did fees increase over the three years? Pay attention to wording of questions - some fees may have already been paid off. 
+
+
+### Allowances
+```{r allowances}
+allow_tbl <- df %>% filter(cqp == 'CQP') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('all_allow', 'allow', 'wave')))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean} ({N_nonmiss})",
+              missing = "no") %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_caption("Allowances")
+
+allow_tbl2 <- df %>% filter(cqp == 'Non-CQP') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('all_allow', 'allow', 'wave')))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean} ({N_nonmiss})",
+              missing = "no") %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>% 
+  modify_footnote(
+    all_stat_cols() ~ "All allowances in FCFA per week, as reported by the patron.")
+
+tbl_merge(list(allow_tbl, allow_tbl2), tab_spanner = c("CQP Apprentices", "Non-CQP Apprentices")) %>% as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position"))
+```
+### Skills
+
+### Experience
+
+
+
+# Agreement between master and apprentice
+
+How do apprentices and master's rate each others' performance? Are they in agreement about fees paid, conditions of apprenticeship, allowances, basic firm characteristics such as firm size and ...?
+
+## Comparing Competencies
+
+```{r comp}
+allow_tbl <- df %>% filter(cqp == 'CQP') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('all_comp', 'comp', 'wave')))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean}",
+              missing = "no") %>% 
+  add_p(pvalue_fun = fmt_pvalue_with_stars) %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_caption("Master Assessment of Apprentice Competencies")
+
+allow_tbl2 <- df %>% filter(cqp == 'Non-CQP') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('all_comp', 'comp', 'wave')))) %>% 
+  mutate(wave = factor(wave, labels = c("Baseline", "Endline"))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean}",
+              missing = "no") %>% 
+  add_p(pvalue_fun = fmt_pvalue_with_stars) %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>% 
+  modify_footnote(
+    all_stat_cols() ~ "All ratings given on Likert scale from 1 (very poor) to 5 (very good).")
+
+tbl_merge(list(allow_tbl, allow_tbl2), tab_spanner = c("CQP Apprentices", "Non-CQP Apprentices")) %>% as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+```
+## Comparing Experience
+
+```{r exp}
+allow_tbl <- df %>% filter(cqp == 'CQP') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('all_exp', 'exp', 'wave')))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean}",
+              missing = "no") %>% 
+  add_p(pvalue_fun = fmt_pvalue_with_stars) %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_caption("Master Assessment of Apprentice Experience")
+
+allow_tbl2 <- df %>% filter(cqp == 'Non-CQP') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('all_exp', 'exp', 'wave')))) %>% 
+  mutate(wave = factor(wave, labels = c("Baseline", "Endline"))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean}",
+              missing = "no") %>% 
+  add_p(pvalue_fun = fmt_pvalue_with_stars) %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>% 
+  modify_footnote(
+    all_stat_cols() ~ "All ratings given on Likert scale from 1 (very poor) to 5 (very good).")
+
+tbl_merge(list(allow_tbl, allow_tbl2), tab_spanner = c("CQP Apprentices", "Non-CQP Apprentices")) %>% as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+```
+
+## Comparing Ratings
+
+```{r mratings}
+allow_tbl <- df %>% filter(cqp == 'CQP') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('all_rating', 'rating', 'wave')))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean}",
+              missing = "no") %>% 
+  add_p(pvalue_fun = fmt_pvalue_with_stars) %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_caption("Master Ratings of Apprentice Performance")
+
+allow_tbl2 <- df %>% filter(cqp == 'Non-CQP') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('all_rating', 'rating', 'wave')))) %>% 
+  mutate(wave = factor(wave, labels = c("Baseline", "Endline"))) %>% 
+  tbl_summary(by=wave,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean}",
+              missing = "no") %>% 
+  add_p(pvalue_fun = fmt_pvalue_with_stars) %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>% 
+  modify_footnote(
+    all_stat_cols() ~ "All ratings given on Likert scale from 1 (very poor) to 5 (very good).")
+
+tbl_merge(list(allow_tbl, allow_tbl2), tab_spanner = c("CQP Apprentices", "Non-CQP Apprentices")) %>% as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+```
+
+Apprentice's ratings of firm and master trainer qualities. Responses did not differ significantly between baseline and endline (see Appendix).
+
+```{r aratings}
+df %>% filter(cqp == 'CQP') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('YS4.40', 'SELECTED')))) %>% zap_labels() %>% 
+  mutate(SELECTED = factor(SELECTED, labels = c("CQP", "Non-CQP"))) %>% 
+  tbl_summary(by=SELECTED,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean} ({N_nonmiss})",
+              missing = "no") %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_caption("Apprentice Ratings of Firm and Master Trainer Qualities") %>% 
+  modify_footnote(
+    all_stat_cols() ~ "All ratings given on Likert scale from 1 (very poor) to 5 (very good).") %>% 
+  as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+# Appendix Section 
+
+\FloatBarrier
+
+```{r aratingswave}
+tbl1 <- df %>% filter(cqp == 'CQP', wave == 'Baseline') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('YS4.40', 'SELECTED')))) %>% zap_labels() %>% 
+  mutate(SELECTED = factor(SELECTED, labels = c("Selected", "Not Selected"))) %>%
+  tbl_summary(by=SELECTED,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean} ({N_nonmiss})",
+              missing = "no") %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_caption("Apprentice Ratings of Firm and Master Trainer Qualities")
+
+tbl2 <- df %>% filter(cqp == 'CQP', wave == 'Endline') %>% 
+  select(tidyselect::vars_select(names(df), matches(c('YS4.40', 'SELECTED')))) %>% zap_labels() %>% 
+  mutate(SELECTED = factor(SELECTED, labels = c("Selected", "Not Selected"))) %>% 
+  tbl_summary(by=SELECTED,
+              type = everything() ~ "continuous",
+              statistic = all_continuous() ~ "{mean} ({N_nonmiss})",
+              missing = "no") %>% 
+  modify_header(update = all_stat_cols() ~ "**{level}**") %>%
+  modify_footnote(
+    all_stat_cols() ~ "All ratings given on Likert scale from 1 (very poor) to 5 (very good).") 
+
+tbl_merge(list(tbl1, tbl2), tab_spanner = c("Baseline", "Endline")) %>% as_kable_extra(format = "latex", booktabs = T, linesep = "") %>% 
+  kableExtra::kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+```
+
+```{r reg1, results = 'asis'}
+
+firm_averages <- df %>% select(-'IDYouth') %>% group_by(FS1.2, wave) %>% summarise_at(tidyselect::vars_select(names(df), "FS6.1", "FS3.4", matches(c("allow", "fees", "wages", "hours", "skills", "comp", "rating"))), mean) %>% ungroup() %>% mutate(total_fees = total_fees/100000)
+  #left_join(joined_long, by = c("FS1.2", "wave")) %>% 
+  #left_join(app_total_by_type, by = c("FS1.2", "wave")) %>% 
+
+m1 <- lm(FS3.4 ~ FS6.1 + FS1.2, data = firm_averages)
+m2 <- lm(FS3.4 ~ FS6.1 + FS1.2 + wave, data = firm_averages)
+m3 <- lm(FS3.4 ~ FS6.1 + FS1.2 + wave + total_fees, data = firm_averages)
+m4 <- lm(FS3.4 ~ FS6.1 + FS1.2 + wave + total_fees + skills_all_trades, data = firm_averages)
+
+stargazer(m1, m2, m3, m4,
+          digits = 2,
+          df = FALSE,
+          header =FALSE,
+          dep.var.caption  = "Firm Size",
+          covariate.labels = c("Number of Apprentices", "Firm ID", "Endline", "Total Fees", "Apprentice Knowledge"),
+          dep.var.labels.include = FALSE,
+          model.numbers          = FALSE)
+```
+
+\clearpage
+
+```{r reg3, results = 'asis'}
+
+firm_averages <- df %>% select(-'IDYouth') %>% group_by(FS1.2, wave) %>% summarise_at(tidyselect::vars_select(names(df), "FS4.7", "FS5.4", "FS6.1", "FS3.4", matches(c("allow", "fees", "wages", "hours", "skills", "comp", "rating"))), mean) %>% ungroup() %>% mutate(total_fees = total_fees)
+
+
+m1 <- lm(FS3.4 ~ FS6.1 + FS1.2, data = firm_averages)
+m2 <- lm(FS3.4 ~ FS6.1 + FS1.2 + wave, data = firm_averages)
+m3 <- lm(FS3.4 ~ FS6.1 + FS1.2 + wave + total_fees, data = firm_averages)
+m4 <- lm(FS3.4 ~ FS6.1 + FS1.2 + wave + total_fees + skills_all_trades, data = firm_averages)
+
+stargazer(m1, m2, m3, m4,
+          digits = 2,
+          df = FALSE,
+          header =FALSE,
+          dep.var.caption  = "Firm Size",
+          covariate.labels = c("Number of Apprentices", "Firm ID", "Endline", "Total Fees", "Apprentice Knowledge"),
+          dep.var.labels.include = FALSE,
+          model.numbers          = FALSE)
+```
+\clearpage
+```{r reg2, results = 'asis'}
+
+df$cqp_dummy <- 2 - as.numeric(df$cqp)
+
+m1 <- lm(comp_all_trades ~ cqp_dummy + FS1.2, data = df)
+m2 <- lm(comp_all_trades ~ cqp_dummy + FS1.2 + wave, data = df)
+m3 <- lm(comp_all_trades ~ cqp_dummy + FS1.2 + wave + total_fees, data = df)
+m4 <- lm(comp_all_trades ~ cqp_dummy + FS1.2 + wave + weekly_hours, data = df)
+
+stargazer(m1, m2, m3, m4,
+          digits = 2,
+          df = FALSE,
+          header =FALSE,
+          dep.var.caption  = "Apprentice Competencies",
+          dep.var.labels.include = FALSE,
+          model.numbers          = FALSE)
+```
+
+```{r reg3, results = 'asis'}
+
+m1 <- lm(skills_all_trades ~ SELECTED + FS1.2, data = cqp_only)
+m2 <- lm(skills_all_trades ~ SELECTED + FS1.2 + wave, data = cqp_only)
+m3 <- lm(skills_all_trades ~ SELECTED + FS1.2 + wave + total_fees, data = cqp_only)
+m4 <- lm(skills_all_trades ~ SELECTED + FS1.2 + wave + weekly_hours, data = cqp_only)
+
+stargazer(m1, m2, m3, m4,
+          digits = 2,
+          df = FALSE,
+          header =FALSE,
+          dep.var.caption  = "Apprentice Skills",
+          dep.var.labels.include = FALSE,
+          model.numbers          = FALSE)
+```
+
+# References {.unnumbered}
+
+::: {#refs}
+:::
