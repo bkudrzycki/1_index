@@ -25,7 +25,7 @@ output:
 knitr::opts_chunk$set(message=FALSE,
                       warning=FALSE,
                       echo = FALSE,
-                      cache = TRUE,
+                      cache = FALSE,
                       fig.path='figures/',
                       out.extra = "",
                       floatfoot.envs = c("figure", "table", "longtabu")) 
@@ -38,17 +38,6 @@ suppressMessages(library(stargazer))
 library(bookdown)
 library(gtsummary)
 suppressMessages(library(tidyverse))
-
-```
-
-```{r loaddata, include=FALSE}
-# rerun all code periodically
-# source("../code/master.R")
-#load("../data/df.rda")
-#selected <- df %>% filter(SELECTED == 1)
-# load functions
-source("../functions/add_by_n.R")
-ggplot2::theme_set(ggplot2::theme_bw())  ## (sets the ggplot2 theme to theme_bw)
 ```
 
 # Introduction
@@ -153,11 +142,11 @@ In the end, the choices surrounding the rescaling, aggregation, time span, and i
 
 ## The YLILI
 
-\noindent The score distribution of each of the three dimensions and 10 constituent indicators are summarized in Table \@ref(tab:descriptives). Overall, transition scores are higher than education or working conditions scores. Youth in LICs and LMICs countries are still quite poorly educated, and appear to transition quickly to jobs with poor working conditions - possibly because they are unable to withstand extended periods of inactivity. Moreover, transition scores are close across all countries of the world ($sd$ = 9.25), while wider variation exists for education (sd = 13.56) and, to a lesser extent, working condition scores ($sd$ = 10.15). Thus, youth working poverty ($sd$ = 23.73), the share of youth without secondary education (sd=17.84) and the youth illiteracy rate ($sd$=17.10) play a large role in determining final rankings of countries. 
+\noindent The score distribution of each of the three dimensions and 10 constituent indicators are summarized in Table \@ref(tab:lastyear). Overall, transition scores are higher than education or working conditions scores. Youth in LICs and LMICs countries are still quite poorly educated, and appear to transition quickly to jobs with poor working conditions - possibly because they are unable to withstand extended periods of inactivity. Moreover, transition scores are close across all countries of the world ($sd$ = 9.25), while wider variation exists for education (sd = 13.56) and, to a lesser extent, working condition scores ($sd$ = 10.15). Thus, youth working poverty ($sd$ = 23.73), the share of youth without secondary education (sd=17.84) and the youth illiteracy rate ($sd$=17.10) play a large role in determining final rankings of countries.
 
-\include{tables/lastyear}
+\input{tables/lastyear}
 
-Table \@ref(tab:ranking} shows the YLILI score for the 54 countries covered by the data, together with each country's overall score, its scores on the three constituent dimensions, its respective ranking (between 1 and 54) for the overall and dimension scores, and the mean dimension rank (for or a visual representation, see Figures \@ref(fig:worldmap) and \@ref(fig:totalmap) in the online Appendix). From the sample of low and lower-middle income countries analyzed, Ukraine scores the highest on the YLILI (84.67) with high scores in all three dimensions (all above 80), followed by Moldova, Mongolia, Kyrgyzstan, Cambodia, and Viet Nam. Niger ranks last (with an overall score of 40.54) and is joined in the bottom five by Madagascar, Mali, Afghanistan, and Rwanda. Of the 20 worst-performing countries, 18 are located in SSA, with Pakistan (34th) and Afghanistan (51st) being the two exceptions.
+Table \@ref(tab:lastyear) shows the YLILI score for the 54 countries covered by the data, together with each country's overall score, its scores on the three constituent dimensions, its respective ranking (between 1 and 54) for the overall and dimension scores, and the mean dimension rank (for or a visual representation, see Figures \@ref(fig:worldmap) and \@ref(fig:totalmap) in the online Appendix). From the sample of low and lower-middle income countries analyzed, Ukraine scores the highest on the YLILI (84.67) with high scores in all three dimensions (all above 80), followed by Moldova, Mongolia, Kyrgyzstan, Cambodia, and Viet Nam. Niger ranks last (with an overall score of 40.54) and is joined in the bottom five by Madagascar, Mali, Afghanistan, and Rwanda. Of the 20 worst-performing countries, 18 are located in SSA, with Pakistan (34th) and Afghanistan (51st) being the two exceptions.
 
 Figure \@ref(fig:spider) in the online Appendix depicts indicator scores by world region. Aside from the strong overall performance of the two Eastern European countries (Moldova and the Ukraine), visual inspection reveals no substantial differences in YLILI and its indicators across regions. The low number of countries in Eastern Europe (2), Northern Africa (4) and Latin America (4) also require that any regional averages are treated with caution. Across all regions, formality rates and harmonized test scores leave the most room for improvement. 
 
@@ -165,7 +154,7 @@ Comparing absolute levels, SSA scores critically low (nearly 10 points lower tha
 
 \input{tables/ranking}
 
-\noindent At the country level, Table \@ref(tab:ranking) shows that rank correlations across the three YLILI dimensions are low: performance in one dimension does not necessarily imply similar performance in the other two. Countries under-performing or over-performing on a particular dimension can be systematically identified by inspecting the standard deviation of their three dimension rankings. The most "imbalanced" countries are, in order, Liberia, Ethiopia, Bhutan, Burundi, Viet Nam, Egypt, Madagascar, Pakistan, Zimbabwe and Lesotho. The direction of the imbalance in these countries has a discernible regional pattern: transition scores for "imbalanced" countries in SSA tend to be higher than their working conditions or education scores. The two Middle East and North African (MENA) countries, Egypt and Pakistan, have working conditions scores that are much higher relative to the rest of the sample than their education and transition scores. Viet Nam and Bhutan have transition scores that are among the lowest in the sample, despite having relatively strong education and working conditions outcomes. These discrepancies highlight that countries do not perform equally well in different dimensions of youth labor market strength and that no single dimension should be considered in isolation; they can also be useful for identifying national policy priorities.
+\noindent At the country level, Table \@ref(tab:lastyear) shows that rank correlations across the three YLILI dimensions are low: performance in one dimension does not necessarily imply similar performance in the other two. Countries under-performing or over-performing on a particular dimension can be systematically identified by inspecting the standard deviation of their three dimension rankings. The most "imbalanced" countries are, in order, Liberia, Ethiopia, Bhutan, Burundi, Viet Nam, Egypt, Madagascar, Pakistan, Zimbabwe and Lesotho. The direction of the imbalance in these countries has a discernible regional pattern: transition scores for "imbalanced" countries in SSA tend to be higher than their working conditions or education scores. The two Middle East and North African (MENA) countries, Egypt and Pakistan, have working conditions scores that are much higher relative to the rest of the sample than their education and transition scores. Viet Nam and Bhutan have transition scores that are among the lowest in the sample, despite having relatively strong education and working conditions outcomes. These discrepancies highlight that countries do not perform equally well in different dimensions of youth labor market strength and that no single dimension should be considered in isolation; they can also be useful for identifying national policy priorities.
 
 ## Testing labor market hypotheses using the YLILI
 
@@ -179,7 +168,7 @@ We also find a strong and significant positive correlation between the share of 
 
 Next, we attempt to establish possible determinants of youth labor market performance as measured by the YLILI. To this end, we regress the overall YLILI score on a number of macroeconomic variables obtained from the World Bank Development Indicators [@worldbank2021a] and the Ease of Doing Business rankings [@worldbank2021]. In each regression, the most recent available observation for each indicator-country pair is used. The first five columns of Table \@ref(tab:macrocorr) show the correlations between the overall country YLILI score and macroeconomic indicators of interest.
 
-\include{tables/regression_long}
+\input{tables/regression_long}
 
 First, we test our claim that the unemployment rate is an incomplete measure of the youth labor market strength for developing countries by regressing the YLILI score on the youth unemployment rate (column 1 of Table \@ref(tab:macrocorr), and Figure \@ref(fig:indexunemp) in the Appendix), and find no statistically significant relationship. Nor is the youth unemployment rate significantly correlated with any of the three dimensions of the YLILI. While this does not allow us to make any normative statement on which is the better measure of labor market strength, it shows that the aspects captured by the YLILI--- transition into the labor market, youth working conditions, and educational background---are not predicted (separately or jointly) by the youth unemployment rate alone.
 
@@ -189,25 +178,23 @@ Existing indices of youth well-being, such as Youth Progress Index and the Youth
 
 ## The YLILI and Demographic Change
 
-\noindent The growth in the absolute number of youth has increased much faster in LICs and LMICs than in richer countries (Figure \@ref(fig:youthpop)). At 60\% of the total population, the share of youth below 25 in LICs is double that of HICs and rising (Figure \@ref(fig:B.8) in section \@ref(demographics) of the Appendix). This youth population boom is driven primarily by demographic change in Africa, which has been underway for decades thanks in large part to plummeting child mortality [@ortiz-ospina2016]. The under-20 population in Africa increased by 25.6 percent between 2009 and 2019, and is expected to outnumber the remaining population on the continent by 2070 [@africandevelopmentbank2019]. African populations are already significantly younger than in the rest of the world (Appendix Figure \@ref(fig:pyramids), with a median age, currently at around 18 years, that is unlikely to exceed 21 before 2035. By comparison, by this time, the median person in the world will be aged 35, and the median person in East Asia will be as old as 45 [@filmer2014].
+\noindent The growth in the absolute number of youth has increased much faster in LICs and LMICs than in richer countries (Figure \@ref(fig:youthpop)). At 60\% of the total population, the share of youth below 25 in LICs is double that of HICs and rising (Figure \@ref(fig:stacked) in section \@ref(demographics) of the Appendix). This youth population boom is driven primarily by demographic change in Africa, which has been underway for decades thanks in large part to plummeting child mortality [@ortiz-ospina2016]. The under-20 population in Africa increased by 25.6 percent between 2009 and 2019, and is expected to outnumber the remaining population on the continent by 2070 [@africandevelopmentbank2019]. African populations are already significantly younger than in the rest of the world (Appendix Figure \@ref(fig:pyramids), with a median age, currently at around 18 years, that is unlikely to exceed 21 before 2035. By comparison, by this time, the median person in the world will be aged 35, and the median person in East Asia will be as old as 45 [@filmer2014].
 
-```{r youthpop, fig.align = "center", out.width = '49%', fig.show='hold', fig.cap="World youth population, 1960-2020"}
+```{r youthpop, fig.align = "center", out.width = '49%', fig.show='hold', fig.cap="World youth population, 1960-2020 \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
 knitr::include_graphics(c("figures/relative_population.png", "figures/total_population.png"))
 ```
-\footnotesize{Source: World Population Prospects, @unitednations2019}
-\normalsize
 
 This "youth bulge" has implications for youth labor markets in SSA, where YLILI scores are among the lowest. On one hand, the population boom is an opportunity for growth. It has coincided with strong economic expansion in sub-Saharan Africa, with gross GDP growing an average of 4.35\% per annum between 2000 and 2019, compared to 1.75\% in the 20 years prior, per the World Bank. Experience from East Asia suggests that expanding working-age populations can contribute to economic transformation and rapid growth [@bloom1998], boosting demand for youth labor and improving their working conditions. On the other hand, the potential for a demographic dividend in SSA is curtailed by persistently low labor productivity and savings. Moreover, high dependency ratios prevent workers from being able to save and invest, and high fertility rates keep young women confined to the home, reducing the effective size of the labor force [@eastwood2011]. 
 
-While the impact of population growth on a specific labor market will depend on idiosyncratic factors such as industrial composition, informal sector size, government policy, and the country-specific elasticity of labor demand, we can still use the YLILI to provide some evidence about the broader demographic determinants of the cross-country differences in youth labor market conditions. Columns (4) and (5) of Table \@ref(tab:macro_corr) present the relationship between two demographic indicators and the YLILI score. The first, the youth population ratio, is defined as the population aged 15--24 divided by the total population. This ratio ranges from 0.095 to 0.223 for LICs and LMICs, with a mean of 0.189. It has been slowly increasing for low-income countries over the past 2 decades (from 19.5 percent in 2000 to 20.2 in 2020) and decreasing for lower-middle income countries (from 19.7 percent in 2000 to 17.9 percent in 2020). The youth population ratio is negatively correlated with the YLILI score: a one percent increase in the youth ratio is associated with a 2 point decrease on the YLILI scale. The fertility rate per country, which measures the number of births per woman and ranges from 1.262 to 6.913 and a mean of 3.72, exhibits an even stronger relationship: an additional birth per woman---slightly less than one standard deviation---is associated with a 4.6 point decrease in the YLILI score. When these two demographic variables are regressed together with GDP per capita on the YLILI score (column 6), income is no longer a statistically significant predictor of the YLILI score. In other words, the size of the youth bulge appears affect youth labor market strength, even among among countries at similar levels of economic development. This can also be seen in Figure \@ref(fig:indexgdp) in the Appendix: several countries with middling income levels---e.g., Haiti, Nepal, Kyrgyzstan, and Cambodia---are still able to offer their youth relatively attractive labor conditions.
+While the impact of population growth on a specific labor market will depend on idiosyncratic factors such as industrial composition, informal sector size, government policy, and the country-specific elasticity of labor demand, we can still use the YLILI to provide some evidence about the broader demographic determinants of the cross-country differences in youth labor market conditions. Columns (4) and (5) of Table \@ref(tab:regwide) present the relationship between two demographic indicators and the YLILI score. The first, the youth population ratio, is defined as the population aged 15--24 divided by the total population. This ratio ranges from 0.095 to 0.223 for LICs and LMICs, with a mean of 0.189. It has been slowly increasing for low-income countries over the past 2 decades (from 19.5 percent in 2000 to 20.2 in 2020) and decreasing for lower-middle income countries (from 19.7 percent in 2000 to 17.9 percent in 2020). The youth population ratio is negatively correlated with the YLILI score: a one percent increase in the youth ratio is associated with a 2 point decrease on the YLILI scale. The fertility rate per country, which measures the number of births per woman and ranges from 1.262 to 6.913 and a mean of 3.72, exhibits an even stronger relationship: an additional birth per woman---slightly less than one standard deviation---is associated with a 4.6 point decrease in the YLILI score. When these two demographic variables are regressed together with GDP per capita on the YLILI score (column 6), income is no longer a statistically significant predictor of the YLILI score. In other words, the size of the youth bulge appears affect youth labor market strength, even among among countries at similar levels of economic development. This can also be seen in Figure \@ref(fig:indexgdp) in the Appendix: several countries with middling income levels---e.g., Haiti, Nepal, Kyrgyzstan, and Cambodia---are still able to offer their youth relatively attractive labor conditions.
 
-Columns (7) and (8) attempt to discern whether the structural features of an economy are able to explain differences in youth labor market performance. In model (7), we retain GDP per capita, the youth ratio, and the fertility rate, and introduce three measures of the structural composition of the economy: share of GDP in agricultural production, manufacturing, and export volume, respectively. In model (8), GDP is dropped in favor of more detailed indicators such as foreign direct investment (FDI), the national savings rate, urbanization and electrification rates, and the Ease of Doing Business index score (from the World Bank, @-worldbank2021). In both specifications, the two demographic variables remain highly significant at conventional levels. When controlling for income levels and demographics, more agrarian economies are found to have weaker youth labor markets. This is consistent with youth leaving work in agriculture _en masse_ and characterizations of agricultural work as relatively low-productivity and low-income [@filmer2014]. Foreign direct investment, on the other hand, is associated with better employment outcomes for youth.
+Columns (7) and (8) attempt to discern whether the structural features of an economy are able to explain differences in youth labor market performance. In model (7), we retain GDP per capita, the youth ratio, and the fertility rate, and introduce three measures of the structural composition of the economy: share of GDP in agricultural production, manufacturing, and export volume, respectively. In model (8), GDP is dropped in favor of more detailed indicators such as foreign direct investment (FDI), the national savings rate, urbanization and electrification rates, and the Ease of Doing Business index score (from the World Bank, -@worldbank2021). In both specifications, the two demographic variables remain highly significant at conventional levels. When controlling for income levels and demographics, more agrarian economies are found to have weaker youth labor markets. This is consistent with youth leaving work in agriculture _en masse_ and characterizations of agricultural work as relatively low-productivity and low-income [@filmer2014]. Foreign direct investment, on the other hand, is associated with better employment outcomes for youth.
 
-We repeat this analysis for the gender-disaggregated rankings of the YLILI and the three dimensions of the overall (not gender-specific) YLILI using the preferred specification in column (7). The results are shown in Table \@ref(tab:regwide). While higher youth ratios are associated with worse labor market outcomes for males, high fertility rates have a much stronger negative impact on females. In other words, high fertility rates decrease labor force participation and other labor market outcomes for young women in the present (in line with Bloom et al., @-bloom2009), while reducing labor market prospects for young men in the future. 
+We repeat this analysis for the gender-disaggregated rankings of the YLILI and the three dimensions of the overall (not gender-specific) YLILI using the preferred specification in column (7). The results are shown in Table \@ref(tab:regwide). While higher youth ratios are associated with worse labor market outcomes for males, high fertility rates have a much stronger negative impact on females. In other words, high fertility rates decrease labor force participation and other labor market outcomes for young women in the present (in line with Bloom et al., -@bloom2009), while reducing labor market prospects for young men in the future. 
 
 Table \@ref(tab:regwide) also shows that different dimensions of the YLILI correlate with different macroeconomic measures. A high fertility rate, for instance, is associated with lower transition scores, likely reflecting its the detrimental effects of childbirth on female economic participation. On the other hand, richer countries experience slower youth transitions to the labor market---again, because extended periods of inactivity after leaving school is a luxury that youth in lower-income countries cannot afford. In contrast to the overall YLILI score, the working conditions dimension score _is_ predicted by GDP per capita, even after controlling for demographic variables. Thus, even if economic growth is not a solution to all aspects of the youth employment problem, it can still lead to short-term improvements by alleviating youth working poverty, underemployment, and work informality. Finally, education outcomes are shown to be worse for countries with higher youth ratios (possibly via overburdened education systems) and fertility rates (higher dropout rates for females). 
 
-\include{tables/regression_wide}
+\input{tables/regression_wide}
 
 ## The Gender YLILI
 
@@ -217,7 +204,7 @@ Encouraging gains have been made in female access to education, literacy, and ma
 
 Other gender inequalities remain pronounced in parts of the developing world. Reliable data on the gender wage gap in low-income countries is scarce, but limited evidence also shows significant variation, from 20 percent in Mozambique and Pakistan to more than 80 percent in the Ivory Coast [@worldbank2011]. A recent study shows that as countries get richer, women tend to concentrate into an ever smaller number of occupations (even as they branch out into new sectors) ---thus perpetuating gender segregation in the workplace [@borrowman2020]. Women in low-income countries work in the informal sector at higher rates than men: they are less likely to be an employer, own land, or have control over their finances, particularly in SSA and Southern Asia [@ortiz-ospina2018], and up to three times more likely to be a contributing family worker [@bonnet2018].  Such gender-based labor market inequalities start young and can hamper prospects for growth in the long term [@undp2019].
 
-Average dimension and indicator scores for the gender-specific YLILI are presented in Table \@ref(tab:gender_means). Labor market conditions in LICs and LMICs favor young men by an average of just under 3 points, as shown in Figure \@ref(fig:gendercorr). There is a negative and marginally significant correlation between the gender difference in YLILI score and the aggregated YLILI itself: countries in which women are most disadvantaged are Afghanistan (ranked 51st out of 54 overall on the YLILI), India (14th), Senegal (36th), and Pakistan (34th), while the Philippines (10th overall), Lesotho (20th), Nicaragua (16th), Honduras (25th) and Ghana (28thst) are among the countries with a higher female than male YLILI (see Tables \@ref(tab:gendiff) and \@ref(tab:gendiffdims) in the online Appendix for country-by-country performance and Figures \@ref(fig:gendiff) and \@ref(fig:genderdims) for a visual representation). We find no relationship between the national gender gap and GDP per capita.
+Average dimension and indicator scores for the gender-specific YLILI are presented in Table \@ref(tab:gendermeans) in the Appendix. Labor market conditions in LICs and LMICs favor young men by an average of just under 3 points, as shown in Figure \@ref(fig:gendercorr). There is a negative and marginally significant correlation between the gender difference in YLILI score and the aggregated YLILI itself: countries in which women are most disadvantaged are Afghanistan (ranked 51st out of 54 overall on the YLILI), India (14th), Senegal (36th), and Pakistan (34th), while the Philippines (10th overall), Lesotho (20th), Nicaragua (16th), Honduras (25th) and Ghana (28thst) are among the countries with a higher female than male YLILI (see Tables \@ref(tab:gendiff) and \@ref(tab:gendiffdims) in the online Appendix for country-by-country performance and Figures \@ref(fig:gendiff) and \@ref(fig:genderdims) for a visual representation). We find no relationship between the national gender gap and GDP per capita.
 
 The dimension scores for male and females are shown in the bottom panel of Figure \@ref(fig:genderdims). The gender differences are largest on the transition dimension (left panel), with a mean transition score of 82.3 for men and 75.56 for women. The gender gap in transition scores is driven primarily by high inactivity among young women: the average NEET rate for female youth in our sample is 33.5 percent, compared to 17.7 percent for males--- significantly higher than the global gap (31.1 percent for females versus 13.9 percent for males [@ilo2020]). Developing countries with the most exacerbated gender differences in the NEET rate are Afghanistan, Yemen, Pakistan, Bangladesh, and India, suggesting that regional cultural attitudes play an important role in determining female labor market participation.
 
@@ -226,7 +213,7 @@ The dimension scores for male and females are shown in the bottom panel of Figur
 knitr::include_graphics("figures/male_vs_female.png")
 ```
 
-```{r genderdims, fig.align = "center", out.width = '33%', fig.show='hold', fig.cap="Dimension scores by gender (male scores on x-axis)"}
+```{r genderdims, fig.align = "center", out.width = '49%', fig.show='hold', fig.cap="Dimension scores by gender (male scores on x-axis)"}
 knitr::include_graphics(c("figures/transition_genderdiff.png", "figures/workingcond_genderdiff.png", "figures/education_genderdiff.png"))
 ```
 
@@ -236,13 +223,13 @@ Finally, while countries in our sample appear to have only a minor gender imbala
 
 To investigate a possible determinant of these gender differences in youth labor markets, we examine the relationship between the YLILI gender gap and the Council onf Foreign Relations Women's Workplace Equality Index (which is measured on a scale from 0 to 100 and is based on seven indicators: accessing institutions, building credit, getting a job, going to court, protecting women from violence, providing incentives to work, and using property). We observe a strong positive linear correlation (0.33, significant at p < 0.001) between the female YLILI and the CFR Index and a strong negative correlation (-0.156, significant at p < 0.0001) between the YLILI gender gap and the CFR Index, suggesting that institutional and legal protections for women in the workplace can help reduce gender inequalities in youth labor markets.
 
-## Robustness {#robustness}
+# Robustness {#robustness}
 
 An important consideration when evaluating the usefulness of the YLILI is its sensitivity to the choice of indicators and aggregation methods used in its construction. Though data availability was the main determinant of which indicators were included, the methodological choices described in Section \@ref(methods) still leave many degrees of freedom. Regardless of the final combination of indicators, the index should be robust to the inclusion or exclusion of any particular variable, as well to choices regarding the number of included variables, the way they are aggregated, and the choice of whether and how to impute missing observations. To test the robustness of the YLILI, we observe the changes in scores and rankings when different specifications are used.
 
 Five measures are summarized in Table \@ref(tab:altspecs). For index scores, we report the correlation between the scores generated by alternative index specifications and the original YLILI score, along with the standard deviation of their differences. For country rankings, we compute the Spearman correlation along with the mean and maximum rank differences between the original YLILI and proposed alternatives. We conduct these tests for 12 specifications: ten consisting of the same aggregation and imputation method, but dropping a single indicator (resulting in indices containing nine indicators). One specification was generated using the geometric mean to aggregate across indicators and dimensions, and one using raw data only (without imputation).
 
-\include{tables/altspecs}
+\input{tables/altspecs}
 
 Scores and rankings for all countries were recalculated with the alternative specifications and are shown in Table \@ref(tab:altscores) in the online Appendix. Scores and ranks remain highly correlated with the original YLILI when a single variable is dropped, indicating that the index is not overly dependent on the inclusion of any particular measure. Alternative specifications impact the countries in the middle of the index much more than those at the extremes. Neither score nor rank correlation drops below 0.9 for any of the alternative specifications studied. Removing the youth working poverty rate causes the largest overall changes in scores and reordering of rank, with countries changing rank by 4.3 positions on average. When the geometric rather than the arithmetic mean is used to aggregate both the indicators into dimensions and dimensions into the final YLILI score, rankings and scores when using the two indicator aggregation methods remain strongly correlated despite the significant shift in the absolute scores (Figure \@ref(fig:arithgeom) in the online Appendix). Certain scores and ranks change when data is not imputed, with India moving ranks by an entire 24 positions (from rank 14 with imputed data to rank 38 without), as depicted in Figure \@ref(fig:imputedraw) in the online Appendix. Given the conceptual justification for imputation, however, this is only reassuring that imputation is necessary for delivering consistent results. 
 
@@ -250,7 +237,7 @@ As with any composite index, several caveats and limitations warrant discussion.
 
 While a historical YLILI time series would have been ideal for studying policy impacts and changes in youth labor markets over time, the infrequency and scarcity of retrospective data ultimately proved to be insurmountable. Although labor market statistics for LMICs and LICs have become more frequent and reliable in recent years, administrative data quality in some countries remains so poor that two SDG subgoals were aimed at data collection capacity. For instance, the NEET rate, the primary indicator for tracking progress on youth employment for SDG 8, was last collected in 2005 in Congo and 2002 in Guinea, and it is not available on the ILO database at all for several lower-middle income countries, including Morocco and Tajikistan. With improved data coverage, future editions of the YLILI may be able to provide insights about changes in youth labor market strength over time.
 
-## Discussion {#discussion}
+# Discussion {#discussion}
 
 \noindent In the decades to come, youth working populations are expected to boom in many low-income and lower-middle income countries. Providing opportunities for decent and gainful work for youth while facing the dual headwinds of persistent informality and slow structural change will be a key challenge for policymakers. The Youth Labor Index for Low-Income Countries offers a holistic, quantitative picture of LIC and LMIC youth labor market strength, with an explicit focus on the quality of work for youth, to help measure progress on this development goal and to provide guidance for policy decisions.
 
@@ -264,6 +251,8 @@ How can the YLILI help policymakers improve youth labor markets in developing co
 
 Finally, the YLILI shows the usefulness of detailed, gender-disaggregated data, and could still be vastly improved with more comprehensive national statistics. The fact that we were unable to generate a score for 25 countries---almost a third of the sample----despite relatively relaxed requirements (e.g., including data up to a decade old), highlights the data scarcity which makes the study of youth labor markets a challenge [@jerven2013]. We note that even major compilers of international statistics such as [Our World in Data](https://ourworldindata.org/), which have conducted numerous detailed analyses of topics related to the SDGs, do not have a page dedicated to the youth employment crisis at this time. Improving statistical capacity would thus be a major step towards an improved YLILI and towards more effective policies addressing the youth employment challenge.
 
+\clearpage
+
 # References {.unnumbered}
 \noindent
 
@@ -272,41 +261,70 @@ Finally, the YLILI shows the usefulness of detailed, gender-disaggregated data, 
 \appendix
 \section{Appendix A}
 
-## Availability {#availability}
+## Index Construction {#weights}
+The working conditions ratio and harmonized test scores indicators are converted into a unit-less "progress score" ranging from 0 to 100 using the standard Min-Max method as follows: 
+$$ s_{idc}= \Bigl(\frac{\text{value}_{idc}- \text{min}_{id}}{ \text{max}_{id} - \text{min}_{id}} \Bigl) \cdot 100 $$
+\noindent where $s_{idc}$ represents country $c$'s score for indicator $i$---which ranges from 0 to 100---for indicator $i$ from dimension $d$. $\text{value}_{idc}$ denotes country $c$'s observed value for indicator $i$. $\text{min}_{id}$ is the value of indicator $i$ at, or below which the score is 0. $\text{max}_{id}$ is the value at, or above which the score is 100.
 
-## Weights {#weights}
+The challenge is to determine the value of both variables $\text{min}_{id}$ and $\text{max}_{id}$. Depending on the indicator, this could be a policy target, the theoretical max/min value, the most practical max/min value from a scaling perspective, a number derived from statistical analysis of the distribution, etc. Difficulties arise when the indicator is not naturally bounded, as in the case of the relative working conditions ratio (and thus of both ratios that construct it, i.e. the working poverty ratio and the time-related underemployment ratio). As described in the text, the working conditions ratio is given higher and lower bounds of 10 and 1, while for the harmonized test score the natural bounds of 300 and 625 (the lowest and highest possible scores, respectively) are used.
 
-## Correlations {#correlations}
+A further design choice concerns the method of aggregation across indicators and dimensions. In most applications, this is either additive, such that individual components are summed to form the aggregate, or multiplicative, in which case it becomes the product of the parts. If indicators are rescaled before aggregation, the analogs of these two approaches become the arithmetic and the geometric mean, respectively. The current HDI uses both: in taking the average of two measures of school attainment, it uses the arithmetic mean at the dimension level, but takes the geometric mean of the three dimensions to arrive at the index score. 
+
+Geometric means are more appropriate for comparing items measured on different scales. The majority of the YLILI indicators are on the natural 0-100 percentage scale, but vary somewhat in distribution. It has also been suggested that multiplicative aggregation is more appropriate when good performance on all component dimensions is required simultaneously for a high aggregate score [@sagar1998], i.e., a country cannot score reasonably well while completely failing in a particular dimension. When using arithmetic means, changes in components enters the aggregate in absolute terms. For example, an increase from 1\% to 2\% in a given indicator would increase the aggregate by 1\% times the weight of the indicator. If using the geometric mean, on the other, the change in the aggregate would reflect the relative change in the indicator---100\% times its weight. A comparison of the two methods reveals close agreement in the final index scores (see Section \@ref(robustness)); we refer to the score generated using the arithmetic mean in this paper due to its easier intuitive interpretation.
+
+## Index Correlations {#correlations}
+
+```{r indexgdp, fig.align = "center", fig.cap="Correlation, YLILI score and GDP per capita"}
+knitr::include_graphics("figures/index_vs_gdp.png")
+```
+
+```{r indexunemp, fig.align = "center", fig.cap="Correlation, YLILI score and national youth unemployment rate"}
+knitr::include_graphics("figures/index_vs_unemp.png")
+```
 
 ```{r cormat, fig.align = "center", fig.show='hold', fig.cap="Correlation matrix (× = insignificant at p < 0.05))"}
 knitr::include_graphics(c("figures/correlation_matrix_labels.png", "figures/correlation_matrix.png"))
 ```
 
-```{r indexunemp, fig.align = "center", fig.show='hold', fig.cap="Correlation, YLILI score and national youth unemployment rate"}
-knitr::include_graphics("figures/index_vs_unemp.png")
+\clearpage
+
+## Demographics by Income Level {#demographics}
+
+```{r stacked, fig.align = "center", out.width = '49%', fig.show='hold', fig.cap="Share of world population by age group, 1960-2020 \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
+knitr::include_graphics(c("figures/stacked_highincome.png", "figures/stacked_lowermiddle.png", "figures/stacked_highermiddle.png", "figures/stacked_lowincome.png"))
 ```
 
-```{r indexgdp, fig.align = "center", fig.show='hold', fig.cap="Correlation, YLILI score and GDP per capita"}
-knitr::include_graphics("figures/index_vs_gdp.png")
-```
-
-```{r pyramids, fig.align = "center", out.width = '35%', fig.show='hold', fig.cap="Population pyramids for sub-Saharan Africa (left) vs. the world (right)"}
+```{r pyramids, fig.align = "center", out.width = '49%', fig.show='hold', fig.cap="Population pyramids for sub-Saharan Africa (left) vs. the world (right) \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
 knitr::include_graphics(c("figures/pp_ssa.png", "figures/pp_world.png"))
 ```
-\footnotesize{Source: World Population Prospects, @unitednations2019}
 
-\input{tables/ranking_bygender}
-
-\include{tables/dimensions_bygender}
+\clearpage
 
 \section{Online Appendix B}
 
-## Availability of indicators
+## Availability of Indicators {#availability}
+
+Table \@ref(tab:kofcomp) shows the indicators included in the KOF Youth Labor Market Index [@renold2014] and the corresponding YLILI indicator, if available. While grouping into dimensions remained roughly similar for the two indices, most indicators from the KOF YLMI were dropped or replaced in the YLILI, either for lack of availability or because more relevant indicators were needed for developing economies.
+
 \input{tables/kofcomparison.tex}
 
-## Geographic distribution of YLILI scores
+\noindent The availability of the indicators of the YLILI is highly scattered across countries and over time. For instance, data on the share of youth NEET is only available one year for Senegal, while it is available 12 years for Bolivia. To get around this issue, we compute the index by taking the last available year data was reported. It is possible that the last available year for indicators frequently date more than 10 years back, masking potential developments in labor market conditions and resulting in misleading comparisons. Hence we restrict the sample to data dating no further back than 2010. A trade-off thus exists between the number of countries for which the YLILI can be generated and the degree of conservatism of established rules regarding the set of indicators to include: the higher the number of countries for which the YLILI can be generated, the weaker the established rules and vice-versa.
 
-## Demographics {#demographics}
+Table \@ref(tab:numind) shows the number of available indicators by year for all developing countries since the year 2000. Ideally, the country-year YLILI would have been generated by using all 10 indicators, i.e., the number of available indicators would have been equal to 10 for all 79 countries of the sample on a yearly basis. Unfortunately, limited administrative data on the labor market is a familiar problem across the developing world and Table \@ref(tab:numind) confirms this: about half of the 79 countries analyzed for this index only have data on less than 3 indicators in any year and no country has all 10 indicators in any year since 2000.
+
+\input{tables/number}
+
+\noindent Despite this sample restriction, one obvious limitation is that distinct years are pooled together, which prevents comparisons within and between countries over time. On the other hand, the major advantage of this method is that it includes the maximum possible number of indicators for each country and hence exploits all the available information. Table \ref{tab:coverage} provides an overview of the coverage of each indicator by year since 2010. The table shows that the last available year of the vast majority of indicators date no further back than 2014. For instance, more than 80\% of countries gathered data for the share of youth NEET since 2014 (among those who did gather data for the share of youth NEET since 2010). 
+
+\input{tables/coverage}
+
+\noindent Finally, Table \ref{tab:avail} indicates how many indicators were utilized to compute the YLILI score for each country. In theory, the maximum possible number of indicators is 10. However, because of data availability, the number of indicators utilized to compute the index varies between countries. In order to take into consideration all dimensions of the labor market and to generate an index as comparable as possible between countries while maximizing the number of countries, we decide that the index can only be generated if there are a minimum of 2 indicators in the transition and education dimensions and 3 indicators in the working condition dimension (7 indicators in total). Table \ref{tab:avail} shows that the vast majority of countries comprise at least 7 out of 10 indicators ($>80\%$ of indicators), however, we advise that interpretations from the index should be made with caution. Overall, the YLILI could be computed for 54 out of 79 countries.
+
+\input{tables/availability}
+
+\clearpage
+
+## Geographic distribution of YLILI scores
 
 ```{r transitionmap, echo=FALSE, fig.align = "center", out.width = '70%', fig.show='hold', fig.cap="Indicators of the transition dimension depicted by country"}
 knitr::include_graphics(c("figures/maps/NEET_total.png", "figures/maps/wcratio_total.png", "figures/maps/skillsmismatch_total.png"))
@@ -320,11 +338,6 @@ knitr::include_graphics(c("figures/maps/workingpoverty_total.png", "figures/maps
 knitr::include_graphics(c("figures/maps/secondaryeduc_total.png", "figures/maps/illiteracy_total.png", "figures/maps/harmonizedtest_total.png"))
 ```
 
-```{r spider, echo=FALSE, fig.align = "center", out.width = '49%', fig.show='hold', fig.cap="Spider charts by world region"}
-options(width = 1500)
-knitr::include_graphics(c("figures/Asia_spider.png", "figures/Eastern_Europe_spider.png", "figures/Latin_America_spider.png", "figures/Northern_Africa_spider.png", "figures/Sub-Saharan_Africa_spider.png"))
-```
-
 ```{r worldmap, echo=FALSE, fig.align = "center", fig.cap = "Total YLILI depicted by country"}
 knitr::include_graphics("figures/maps/YLILI_total.png")
 ```
@@ -332,6 +345,41 @@ knitr::include_graphics("figures/maps/YLILI_total.png")
 ```{r totalmap, echo=FALSE, fig.align = "center", out.width = '69%', fig.show='hold', fig.cap="Dimensions of the YLILI depicted by country"}
 knitr::include_graphics(c("figures/maps/transition_total.png", "figures/maps/working_conditions_total.png", "figures/maps/education_total.png"))
 ```
+
+```{r spider, echo=FALSE, fig.align = "center", out.width = '49%', fig.show='hold', fig.cap="Spider charts by world region"}
+options(width = 1500)
+knitr::include_graphics(c("figures/Asia_spider.png", "figures/Eastern_Europe_spider.png", "figures/Latin_America_spider.png", "figures/Northern_Africa_spider.png", "figures/Sub-Saharan_Africa_spider.png"))
+```
+
+\clearpage
+
+## The Gender YLILI
+
+\input{tables/gender_table}
+
+\input{tables/ranking_bygender}
+
+\input{tables/dimensions_bygender}
+
+```{r gendiff, echo=FALSE, fig.align = "center", fig.cap = "Gender differences in YLILI score"}
+knitr::include_graphics("figures/maps/diff_YLILI.png")
+```
+
+```{r genderdiffmaps, echo=FALSE, fig.align = "center", out.width = '69%', fig.show='hold', fig.cap="Dimensions of the YLILI depicted by country"}
+knitr::include_graphics(c("figures/maps/diff_transition.png", "figures/maps/diff_working_conditions.png", "figures/maps/diff_education.png"))
+```
+
+\clearpage
+
+\begin{landscape}
+\subsection{Robustness}\label{app:altscores}
+
+\input{tables/altscores.tex}
+
+\end{landscape}
+
+\pagenumbering{arabic}
+\setcounter{page}{\numexpr\value{savepage}+2}
 
 ```{r arithgeom, echo=FALSE, fig.align = "center", fig.cap = "Comparison of aggregation methods"}
 knitr::include_graphics("figures/arithmetic_vs_geom.png")
@@ -341,9 +389,5 @@ knitr::include_graphics("figures/arithmetic_vs_geom.png")
 knitr::include_graphics("figures/imputed_vs_raw.png")
 ```
 
-\input{tables/altscores.tex}
 
-```{r gendiff, echo=FALSE, fig.align = "center", fig.cap = "Gender differences in YLILI score"}
-knitr::include_graphics("figures/maps/diff_YLILI.png")
-```
 
