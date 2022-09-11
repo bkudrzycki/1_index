@@ -13,7 +13,9 @@ rm(installed_packages, packages)
 ## ---------------------------------------
 
 ## load lamadex and list of country lists
-devtools::load_all(here("lamadex"))
+# devtools::load_all(here("lamadex"))
+
+devtools::install_github("bkudrzycki/youth-lmi/lamadex", quiet = TRUE, upgrade = "always")
 
 rank <- rank_generator(bygender = "Total", countries = "dev", years = c(2010, 2020), impute = TRUE) %>%
   arrange(desc(index_mean))
@@ -51,6 +53,7 @@ unemp_r <- read.csv(here("data", "raw", "unemployment_rate_sex_age_ilostat.csv")
          classif1.label == "Age (Youth, adults): 15-24") %>% 
   group_by(ref_area.label) %>%
   top_n(1, time) %>% dplyr::select(ref_area.label, unemp_r = obs_value)
+
 
 inform_r <- informal %>% dplyr::select(ref_area.label, inform_r = "Sex: Total") %>% filter(ref_area.label != "Moldova, Republic of",
                                                                                     ref_area.label != "Ukraine",

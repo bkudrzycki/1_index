@@ -22,22 +22,44 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+packages <- c("tinytex", "bookdown", "gtsummary", "stargazer", "tidyverse", "lamadex")
+
+options(repos = c(CRAN = "http://cran.rstudio.com"))
+
+# load the lamadex
+devtools::install_github("bkudrzycki/youth-lmi/lamadex", quiet = TRUE, upgrade = "always")
+
+# install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages], silent = TRUE)
+}
+
+# load packages
+invisible(lapply(packages, library, character.only = TRUE))
+
+rm(packages, installed_packages)
+
+# load YLILI ranks
+rank <- lamadex::rank_generator(bygender = "Total", countries = "dev", years = c(2010, 2020), impute = TRUE) %>%
+  arrange(desc(index_mean))
+
+# load list of countries
+all_countries <- countryLists()[[9]] %>% 
+  mutate(inc_level = ifelse(ref_area.label %in% c(countryLists()[[1]]$ref_area.label, countryLists()[[2]]$ref_area.label), "LIC/LMIC", "HIC/UMIC"))
+
+# load code chunks
+knitr::read_chunk('../code/figures_body.R')
+
 knitr::opts_chunk$set(message=FALSE,
                       warning=FALSE,
                       echo = FALSE,
-                      cache = FALSE,
+                      cache = TRUE,
                       fig.path='figures/',
                       out.extra = "",
                       floatfoot.envs = c("figure", "table", "longtabu")) 
 
 options(scipen=2, digits=2)
-```
-
-```{r loadlibraries, include=FALSE, cache = FALSE}
-suppressMessages(library(stargazer))
-library(bookdown)
-library(gtsummary)
-suppressMessages(library(tidyverse))
 ```
 
 # Introduction
@@ -60,10 +82,9 @@ The remainder of the paper is structured as follows. Section \@ref(indicators) d
 
 The YLILI is inspired by the Youth Labor Market Index (YLMI), a composite index introduced in 2014 by the Swiss Economic Institute (KOF) and updated annually every year since [@renold2014]. The YLMI is composed of 12 indicators and has helped highlight issues such as the _youth paradox_---unprecedented educational attainment going hand-in-hand with rising youth unemployment in many high-income countries. However, the YLMI's heavy sourcing of data from the EU and OECD means its usefulness is limited to the study of youth labor markets in high-income countries [@pusterla2015; @pusterla2016]. Crucially, the index relies heavily on the unemployment rate, a widely-cited indicator that is much more informative in high-income than low-income contexts. Unemployment rates in the poorest countries regularly fall under 5 percent, but rather than indicating well-functioning labor markets, they remain low because social security systems are weak and informal, and most people simply cannot afford to remain idle [@filmer2014]. Families with low savings are unable to support graduates through an extended job search, leaving young people with no choice but to enter own-account employment or poorly-paid jobs below their skill level [@fields2012, margolis2014], predominantly in the informal sector [@herrera2013; @sengenberger2011].
 
-Economic development tends to go hand in hand with the formalization of work [@laporta2014]---about 90 percent of employed youth in developing countries work in the informal sector on average, compared to less than 20 percent in high-income countries [@bonnet2018]. Formal work comes with many benefits, from higher wages to employment stability and social security coverage. Thus, the fact that among LICs and LMICs, _lower_ unemployment rates tend to be associated with _higher_ rates of informal work---in contrast to rich countries---presents a problem for the unemployment rate as a measure of economic health (Figure \@ref(fig:infunemp). An indicator that can mean opposite things depending on development level violates a key assumption of composite indices, namely that each of the constituent indicators provides a well-ordered ranking of performance. For this reason, we exclude the unemployment rate from the YLILI.
+Economic development tends to go hand in hand with the formalization of work [@laporta2014]---about 90 percent of employed youth in developing countries work in the informal sector on average, compared to less than 20 percent in high-income countries [@bonnet2018]. Formal work comes with many benefits, from higher wages to employment stability and social security coverage. Thus, the fact that among LICs and LMICs, _lower_ unemployment rates tend to be associated with _higher_ rates of informal work---in contrast to rich countries---presents a problem for the unemployment rate as a measure of economic health (Figure \@ref(fig:fig-infunemp). An indicator that can mean opposite things depending on development level violates a key assumption of composite indices, namely that each of the constituent indicators provides a well-ordered ranking of performance. For this reason, we exclude the unemployment rate from the YLILI.
 
-```{r infunemp, fig.align = "center", fig.show='hold', fig.cap="Relationship between youth unemployment and informality by income level"}
-knitr::include_graphics("figures/inf_unemp.png")
+```{r fig-infunemp, fig.cap="Relationship between youth unemployment and informality by income level", fig.height=4, fig.width=8, , fig.pos='H'}
 ```
 
 In addition to the unemployment rate, the relaxed unemployment rate (the share of unemployed and discouraged workers relative to the size of the labor force), the relative unemployment rate (ratio of youth to adult unemployed) and the long-term unemployment rate (share of unemployed who have been continuously unemployed for a year or more) are all included in the KOF YLMI and pertain directly to the unemployment rate. We exclude these indicators from the YLILI as well, and replace them with measures that are more relevant for describing labor market conditions in low-income economies. For instance, the working poverty rate (living on less than \$1.90 a day) and the literacy rate are generally close to zero for high-income countries (and thus not part of the YLMI), but vary meaningfully for low-income countries. Table \@ref(tab:kofcomp) in the online Appendix provides a more detailed overview of the similarities and differences between the YLMI and YLILI. 

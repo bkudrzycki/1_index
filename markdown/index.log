@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2022.5.15)  17 JUN 2022 09:19
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2022.5.15)  11 SEP 2022 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1324,33 +1324,36 @@ Applying: [2015/01/01] float order in 2-column on input line 49.
 Already applied: [0000/00/00] float order in 2-column on input line 151.
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
-) (./index.aux
+)
+\cslhangindent=\skip87
+\csllabelwidth=\skip88
+(./index.aux
 
 LaTeX Warning: Label `tab:lastyear' multiply defined.
 
 )
 \openout1 = `index.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 149.
-LaTeX Font Info:    ... okay on input line 149.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
@@ -1366,7 +1369,7 @@ Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 \flrow@LT@prelastfoot=\box63
 \c@FBLTpage=\count319
 )
-LaTeX Info: Redefining \microtypecontext on input line 149.
+LaTeX Info: Redefining \microtypecontext on input line 167.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -1377,7 +1380,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 \AtBeginShipoutBox=\box64
-Package hyperref Info: Link coloring ON on input line 149.
+Package hyperref Info: Link coloring ON on input line 167.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1385,9 +1388,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count320
 )
-LaTeX Info: Redefining \ref on input line 149.
-LaTeX Info: Redefining \pageref on input line 149.
-LaTeX Info: Redefining \nameref on input line 149.
+LaTeX Info: Redefining \ref on input line 167.
+LaTeX Info: Redefining \pageref on input line 167.
+LaTeX Info: Redefining \nameref on input line 167.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -1455,51 +1458,51 @@ LaTeX Info: Redefining \nameref on input line 149.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 17.28183pt on input line 156.
+(Font)              scaled to size 17.28183pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.00128pt on input line 156.
+(Font)              scaled to size 12.00128pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 156.
+(Font)              scaled to size 10.00107pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 17.27815pt on input line 156.
+(Font)              scaled to size 17.27815pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 156.
+(Font)              scaled to size 11.99872pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 156.
-LaTeX Font Info:    Try loading font information for U+msa on input line 156.
+(Font)              scaled to size 9.99893pt on input line 174.
+LaTeX Font Info:    Try loading font information for U+msa on input line 174.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 156.
+LaTeX Font Info:    Try loading font information for U+msb on input line 174.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 156.
+(Font)              scaled to size 8.00085pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 156.
+(Font)              scaled to size 6.00064pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 156.
+(Font)              scaled to size 7.99915pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 156.
+(Font)              scaled to size 5.99936pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.00096pt on input line 156.
+(Font)              scaled to size 9.00096pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 156.
+(Font)              scaled to size 5.00053pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.99904pt on input line 156.
+(Font)              scaled to size 8.99904pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 156.
+(Font)              scaled to size 4.99947pt on input line 174.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 171.
+(Font)              scaled to size 7.00075pt on input line 176.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 171.
+(Font)              scaled to size 6.99925pt on input line 176.
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--173
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
 
  []
 
@@ -1508,22 +1511,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--173
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.95116pt on input line 248.
+(Font)              scaled to size 10.95116pt on input line 193.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.10385pt on input line 248.
+(Font)              scaled to size 8.10385pt on input line 193.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.02315pt on input line 248.
+(Font)              scaled to size 6.02315pt on input line 193.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.94882pt on input line 248.
+(Font)              scaled to size 10.94882pt on input line 193.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.10213pt on input line 248.
+(Font)              scaled to size 8.10213pt on input line 193.
 LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.02185pt on input line 248.
+(Font)              scaled to size 6.02185pt on input line 193.
 [2
 
 ] [3]
-File: figures/inf_unemp.png Graphic file (type bmp)
-<figures/inf_unemp.png>
+File: figures/fig-infunemp-1.pdf Graphic file (type pdf)
+<use figures/fig-infunemp-1.pdf>
 [4] (./tables/indicators.tex
 Overfull \hbox (4.76909pt too wide) in paragraph at lines 36--36
 [][] 
@@ -1569,9 +1572,17 @@ File: figures/relative_population.png Graphic file (type bmp)
 <figures/relative_population.png>
 File: figures/total_population.png Graphic file (type bmp)
 <figures/total_population.png>
-[16] (./tables/regression_wide.tex [17]) [18]
+[16] (./tables/regression_wide.tex) [17] [18]
 File: figures/male_vs_female.png Graphic file (type bmp)
 <figures/male_vs_female.png>
+
+Overfull \hbox (948.105pt too wide) in paragraph at lines 376--377
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 23.62956pt on input line 381.
+
 File: figures/transition_genderdiff.png Graphic file (type bmp)
 <figures/transition_genderdiff.png>
 File: figures/workingcond_genderdiff.png Graphic file (type bmp)
@@ -1583,31 +1594,61 @@ Overfull \hbox (15.17592pt too wide) in paragraph at lines 6--19
 [][] 
  []
 
-) [21] [22] [23]
-Underfull \hbox (badness 1748) in paragraph at lines 1448--1451
-[]\TU/texgyrepagella(0)/m/n/10.95 Dewan, S., Peek, P., and International Labour
- Office. (2007). \TU/texgyrepagella(0)/m/it/10.95 Beyond the employ-
+) [21] [22] [23] [24]
+Overfull \hbox (10.17096pt too wide) in paragraph at lines 477--479
+[][]\TU/texgyrepagella(0)/m/n/10.95 Dewan, S., Peek, P., and International Labo
+ur Office. (2007). \TU/texgyrepagella(0)/m/it/10.95 Beyond the employment/unemp
+loyment
  []
 
-[24
+[25
 
 ]
-Overfull \hbox (124.03004pt too wide) in paragraph at lines 1553--1556
-[]\TU/texgyrepagella(0)/m/n/10.95 OECD. (2019). \TU/texgyrepagella(0)/m/it/10.9
-5 Youth on in employment, education, or training (NEET) indicator\TU/texgyrepag
-ella(0)/m/n/10.95 . https://data.oecd.org/youthinac/youth-
+Overfull \hbox (107.03004pt too wide) in paragraph at lines 540--542
+[][]\TU/texgyrepagella(0)/m/n/10.95 OECD. (2019). \TU/texgyrepagella(0)/m/it/10
+.95 Youth on in employment, education, or training (NEET) indicator\TU/texgyrep
+agella(0)/m/n/10.95 . https://data.oecd.org/youthinac/youth-
  []
 
-[25] [26]
+[26] [27]
 File: figures/index_vs_gdp.png Graphic file (type bmp)
 <figures/index_vs_gdp.png>
+
+Overfull \hbox (948.105pt too wide) in paragraph at lines 639--640
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 23.62956pt on input line 644.
+
 File: figures/index_vs_unemp.png Graphic file (type bmp)
 <figures/index_vs_unemp.png>
+
+Overfull \hbox (948.105pt too wide) in paragraph at lines 648--649
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 23.62956pt on input line 653.
+
 File: figures/correlation_matrix_labels.png Graphic file (type bmp)
 <figures/correlation_matrix_labels.png>
 File: figures/correlation_matrix.png Graphic file (type bmp)
 <figures/correlation_matrix.png>
-[27] [28] [29]
+
+Overfull \hbox (714.96667pt too wide) in paragraph at lines 657--658
+ [][] 
+ []
+
+
+Overfull \hbox (714.96667pt too wide) in paragraph at lines 657--658
+ [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 725.0872pt on input line 662.
+
+[28] [29] [30] [31]
 File: figures/stacked_highincome.png Graphic file (type bmp)
 <figures/stacked_highincome.png>
 File: figures/stacked_lowermiddle.png Graphic file (type bmp)
@@ -1620,9 +1661,9 @@ File: figures/pp_ssa.png Graphic file (type bmp)
 <figures/pp_ssa.png>
 File: figures/pp_world.png Graphic file (type bmp)
 <figures/pp_world.png>
-[30
+[32
 
-] [31] (./tables/kofcomparison.tex
+] [33] (./tables/kofcomparison.tex
 Overfull \hbox (7.11998pt too wide) in paragraph at lines 38--38
 [][] 
  []
@@ -1661,9 +1702,9 @@ Overfull \hbox (0.71945pt too wide) in paragraph at lines 38--38
 [][] 
  []
 
-) (./tables/number.tex) [32
+) (./tables/number.tex) [34
 
-] (./tables/coverage.tex) [33] (./tables/availability.tex [34] [35]) [36]
+] (./tables/coverage.tex) [35] (./tables/availability.tex [36] [37]) [38]
 File: figures/maps/NEET_total.png Graphic file (type bmp)
 <figures/maps/NEET_total.png>
 File: figures/maps/wcratio_total.png Graphic file (type bmp)
@@ -1686,6 +1727,11 @@ File: figures/maps/harmonizedtest_total.png Graphic file (type bmp)
 <figures/maps/harmonizedtest_total.png>
 File: figures/maps/YLILI_total.png Graphic file (type bmp)
 <figures/maps/YLILI_total.png>
+
+Overfull \hbox (741.66248pt too wide) in paragraph at lines 746--747
+ [][] 
+ []
+
 File: figures/maps/transition_total.png Graphic file (type bmp)
 <figures/maps/transition_total.png>
 File: figures/maps/working_conditions_total.png Graphic file (type bmp)
@@ -1702,12 +1748,12 @@ File: figures/Northern_Africa_spider.png Graphic file (type bmp)
 <figures/Northern_Africa_spider.png>
 File: figures/Sub-Saharan_Africa_spider.png Graphic file (type bmp)
 <figures/Sub-Saharan_Africa_spider.png>
-[37
+[39
 
-] [38] [39] [40] [41] [42] [43] (./tables/gender_table.tex) (./tables/ranking_b
-ygender.tex [44
+] [40] [41] [42] [43] [44] [45] (./tables/gender_table.tex) (./tables/ranking_b
+ygender.tex [46
 
-] [45]) [46] (./tables/dimensions_bygender.tex
+] [47]) [48] (./tables/dimensions_bygender.tex
 Overfull \hbox (61.19913pt too wide) in alignment at lines 3--25
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -1732,18 +1778,23 @@ Overfull \hbox (61.19913pt too wide) in alignment at lines 65--80
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[47
+[49
 
 ])
 File: figures/maps/diff_YLILI.png Graphic file (type bmp)
 <figures/maps/diff_YLILI.png>
+
+Overfull \hbox (392.04979pt too wide) in paragraph at lines 786--787
+ [][] 
+ []
+
 File: figures/maps/diff_transition.png Graphic file (type bmp)
 <figures/maps/diff_transition.png>
 File: figures/maps/diff_working_conditions.png Graphic file (type bmp)
 <figures/maps/diff_working_conditions.png>
 File: figures/maps/diff_education.png Graphic file (type bmp)
 <figures/maps/diff_education.png>
-[48] [49] [50] (./tables/altscores.tex
+[50] [51] [52] (./tables/altscores.tex
 Overfull \hbox (48.40825pt too wide) in alignment at lines 6--28
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -1764,26 +1815,42 @@ Overfull \hbox (48.40825pt too wide) in alignment at lines 48--67
 ]) [2]
 File: figures/arithmetic_vs_geom.png Graphic file (type bmp)
 <figures/arithmetic_vs_geom.png>
+
+Overfull \hbox (948.105pt too wide) in paragraph at lines 816--817
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 23.62956pt on input line 821.
+
 File: figures/imputed_vs_raw.png Graphic file (type bmp)
 <figures/imputed_vs_raw.png>
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1972.
-[53]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1972.
+
+Overfull \hbox (948.105pt too wide) in paragraph at lines 825--826
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 23.62956pt on input line 830.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 832.
+[55] [56]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 832.
 (./index.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1972.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1972.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 832.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 832.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1972.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 832.
  ) 
 Here is how much of TeX's memory you used:
- 31201 strings out of 492916
- 572601 string characters out of 6133345
- 851002 words of memory out of 5000000
- 34778 multiletter control sequences out of 15000+600000
+ 31211 strings out of 492916
+ 572776 string characters out of 6133345
+ 851063 words of memory out of 5000000
+ 34788 multiletter control sequences out of 15000+600000
  543747 words of font info for 135 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 70i,16n,118p,899b,660s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,16n,118p,2040b,658s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on index.pdf (53 pages).
+Output written on index.pdf (56 pages).
