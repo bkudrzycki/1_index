@@ -14,6 +14,6 @@ Either method generates a PDF called "cnb_apprenticeship.pdf" in the /markdown f
 
 The default path "/Volumes/nadel/research/Data/PhDs/Bart 2022/Paper 3 - CQP" is used in master.R. If the project folder is copied into a different directory, this path name needs to be adjusted.
 
-As mentioned in the file "master.R", certain latex tables needed additional formatting and could not be generated directly in markdown. To replicate these tables, simply run the script "code/index_tables_for_replication.R" in the /code folder.
+As mentioned in the file "master.R", certain latex tables needed additional formatting and could not be generated directly in the Rmarkdown document. To replicate these tables, simply run the script "code/index_tables_for_replication.R" in the /code folder.
 
 If you have any questions, please see the comments in "master.R" or contact the author at bartlomiej.kudrzycki[at]nadel.ethz.ch
