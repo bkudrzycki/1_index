@@ -8,7 +8,7 @@ R (preferably RStudio) is necessary to fully reproduce the paper.
 The paper can be replicated in RStudio in two ways:
 
   1. by running "master.R" in the root folder, or
-  2. by knitting the file "index.Rmd" in the /markdown folder.
+  2. by knitting the file "index.Rmd" in the /markdown folder (shift + cmd + k on Mac).
 
 Either method generates a PDF called "cnb_apprenticeship.pdf" in the /markdown folder. This is the full, replicated paper.
 
