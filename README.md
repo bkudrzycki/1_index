@@ -2,7 +2,7 @@
 This folder was made to facilitate replication of the results and PDF of the paper "Youth Labor Index for Low Income Countries".
 
 # Prerequisites
-R (preferably RStudio) are necessary to fully reproduce the paper.
+R (preferably RStudio) is necessary to fully reproduce the paper.
 
 # Replication
 The paper can be replicated in RStudio in two ways:
