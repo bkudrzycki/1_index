@@ -4,18 +4,16 @@ This folder was made to facilitate replication of the results and PDF of the pap
 # Prerequisites
 R (preferably RStudio) are necessary to fully reproduce the paper.
 
-The following default path is used in the scripts below: 
-
-"/Volumes/nadel/research/Data/PhDs/Bart 2022/Paper 3 - CQP"
-
-If data is copied into a different directory, path names have to be adjusted where indicated below.
-
 # Replication
+The paper can be replicated in RStudio in two ways:
 
-The paper can be replicated by running "master.R" in the root folder, or by knitting the file index.Rmd, found the /markdown folder, in RStudio.
+  -1 by running "master.R" in the root folder, or
+  -2 by knitting the file "index.Rmd" in the /markdown folder.
 
-Either method generates a PDF called "cnb_apprenticeship.pdf" in the "markdown" folder. This is the replicated paper.
+Either method generates a PDF called "cnb_apprenticeship.pdf" in the /markdown folder. This is the full, replicated paper.
 
-As mentioned in the file "master.R", certain tables needed additional formatting and could not be generated directly in the markdown file. To replicate these tables, simply run the script "code/index_tables_for_replication.R" in the /code folder.
+The default path "/Volumes/nadel/research/Data/PhDs/Bart 2022/Paper 3 - CQP" is used in master.R. If the project folder is copied into a different directory, this path name needs to be adjusted.
 
-If you have any questions about replicating this paper, please see comments in the scripts above or contact the author at bartlomiej.kudrzycki[at]nadel.ethz.ch
+As mentioned in the file "master.R", certain latex tables needed additional formatting and could not be generated directly in markdown. To replicate these tables, simply run the script "code/index_tables_for_replication.R" in the /code folder.
+
+If you have any questions, please see the comments in "master.R" or contact the author at bartlomiej.kudrzycki[at]nadel.ethz.ch
