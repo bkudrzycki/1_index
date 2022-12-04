@@ -22,7 +22,7 @@ output:
 ---
 
 ```{r index_setup, include=FALSE}
-packages <- c("openxlsx", "tinytex", "bookdown", "knitr", "gtsummary", "xtable", "stargazer", "kableExtra", "data.table", "gridExtra", "grid", "ggrepel", "ggcorrplot", "tidyverse", "lamadex")
+packages <- c("openxlsx", "tinytex", "bookdown", "gtsummary", "xtable", "stargazer", "kableExtra", "data.table", "gridExtra", "grid", "ggrepel", "ggcorrplot", "tidyverse", "lamadex")
 
 options(repos = c(CRAN = "http://cran.rstudio.com"))
 
