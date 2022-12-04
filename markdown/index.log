@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.15)  4 DEC 2022 14:44
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.15)  4 DEC 2022 15:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1368,10 +1368,10 @@ LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
 \tf@lot=\write5
 \openout5 = `index.lot'.
 
-[3] [4] [5]
+[3] [4] [5] [6]
 File: figures/fig-infunemp-1.pdf Graphic file (type pdf)
 <use figures/fig-infunemp-1.pdf>
-[6] (./tables/indicators.tex
+[7] (./tables/indicators.tex
 Overfull \hbox (4.76909pt too wide) in paragraph at lines 36--36
 [][] 
  []
@@ -1396,114 +1396,115 @@ Overfull \hbox (1.76944pt too wide) in paragraph at lines 36--36
 [][] 
  []
 
-) [7] [8] [9] [10] [11] [12] (./tables/lastyear.tex) [13] (./tables/ranking.tex
-
+[8]) [9] [10] [11] [12] [13] [14] [15] [16] (./tables/lastyear.tex) [17] [18] (
+./tables/ranking.tex
 Overfull \hbox (8.93166pt too wide) in alignment at lines 6--68
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[14]) [15]
+[19]) [20] [21]
 
-LaTeX Warning: Reference `tab:tbl-macrocorr' on page 16 undefined on input line
- 344.
-
-
-LaTeX Warning: Reference `tab:tbl-macrocorr' on page 16 undefined on input line
- 348.
+LaTeX Warning: Reference `tab:tbl-macrocorr' on page 22 undefined on input line
+ 346.
 
 
-LaTeX Warning: Reference `fig:indexunemp' on page 16 undefined on input line 34
-8.
-
-[16]
-
-LaTeX Warning: Reference `tab:tbl-macrocorr' on page 17 undefined on input line
+LaTeX Warning: Reference `tab:tbl-macrocorr' on page 22 undefined on input line
  350.
 
 
-LaTeX Warning: Reference `tab:tbl-macrocorr' on page 17 undefined on input line
+LaTeX Warning: Reference `fig:indexunemp' on page 22 undefined on input line 35
+0.
+
+
+LaTeX Warning: Reference `tab:tbl-macrocorr' on page 22 undefined on input line
  352.
 
+[22]
 
-LaTeX Warning: Reference `fig:indexgdp' on page 17 undefined on input line 352.
+LaTeX Warning: Reference `tab:tbl-macrocorr' on page 23 undefined on input line
+ 354.
+
+
+LaTeX Warning: Reference `fig:indexgdp' on page 23 undefined on input line 354.
 
 
 File: figures/relative_population.png Graphic file (type bmp)
 <figures/relative_population.png>
 File: figures/total_population.png Graphic file (type bmp)
 <figures/total_population.png>
-[17]
+[23] [24]
 
-LaTeX Warning: Reference `tab:tbl-regwide' on page 18 undefined on input line 4
-08.
-
-
-LaTeX Warning: Reference `fig:indexgdp' on page 18 undefined on input line 408.
+LaTeX Warning: Reference `tab:tbl-regwide' on page 25 undefined on input line 4
+10.
 
 
-[18]
-
-LaTeX Warning: Reference `tab:tbl-regwide' on page 19 undefined on input line 4
-12.
+LaTeX Warning: Reference `fig:indexgdp' on page 25 undefined on input line 410.
 
 
-LaTeX Warning: Reference `tab:tbl-regwide' on page 19 undefined on input line 4
+[25]
+
+LaTeX Warning: Reference `tab:tbl-regwide' on page 26 undefined on input line 4
 14.
 
-[19]
+[26]
 
-LaTeX Warning: Reference `tab:gendermeans' on page 20 undefined on input line 4
-25.
+LaTeX Warning: Reference `tab:tbl-regwide' on page 27 undefined on input line 4
+16.
 
+[27]
 
-LaTeX Warning: Reference `fig:gendercorr' on page 20 undefined on input line 42
-5.
-
-
-LaTeX Warning: Reference `fig:genderdims' on page 20 undefined on input line 42
-5.
+LaTeX Warning: Reference `tab:gendermeans' on page 28 undefined on input line 4
+27.
 
 
-LaTeX Warning: Reference `fig:genderdims' on page 20 undefined on input line 42
+LaTeX Warning: Reference `fig:gendercorr' on page 28 undefined on input line 42
 7.
+
+
+LaTeX Warning: Reference `fig:genderdims' on page 28 undefined on input line 42
+7.
+
+
+LaTeX Warning: Reference `fig:genderdims' on page 28 undefined on input line 42
+9.
 
 File: figures/fig-gendercorr-1.pdf Graphic file (type pdf)
 <use figures/fig-gendercorr-1.pdf>
-[20] [21] (./tables/altspecs.tex
+[28] [29] (./tables/altspecs.tex
 Overfull \hbox (15.17572pt too wide) in paragraph at lines 6--19
 [][] 
  []
 
-)
+[30])
 
-LaTeX Warning: Reference `tab:tbl-altscores' on page 22 undefined on input line
- 453.
+LaTeX Warning: Reference `tab:tbl-altscores' on page 31 undefined on input line
+ 455.
 
-[22] [23] [24] [25]
-Overfull \hbox (10.17096pt too wide) in paragraph at lines 523--525
+[31] [32] [33] [34]
+Overfull \hbox (10.17096pt too wide) in paragraph at lines 525--527
 []\TU/texgyrepagella(0)/m/n/10.95 Dewan, S., Peek, P., and International Labour
  Office. (2007). \TU/texgyrepagella(0)/m/it/10.95 Beyond the employment/unemplo
 yment
  []
 
-[26
+[35
 
-]
-Overfull \hbox (107.03004pt too wide) in paragraph at lines 586--588
+] [36]
+Overfull \hbox (107.03004pt too wide) in paragraph at lines 588--590
 []\TU/texgyrepagella(0)/m/n/10.95 OECD. (2019). \TU/texgyrepagella(0)/m/it/10.9
 5 Youth on in employment, education, or training (NEET) indicator\TU/texgyrepag
 ella(0)/m/n/10.95 . https://data.oecd.org/youthinac/youth-
  []
 
-[27] [28]
+[37] [38] [39]
 File: figures/fig-indexgdp-1.pdf Graphic file (type pdf)
 <use figures/fig-indexgdp-1.pdf>
 File: figures/fig-indexunemp-1.pdf Graphic file (type pdf)
 <use figures/fig-indexunemp-1.pdf>
-[29]
+[40]
 File: figures/fig-cormat-1.pdf Graphic file (type pdf)
 <use figures/fig-cormat-1.pdf>
-[30] [31]
+[41] [42]
 File: figures/stacked_highincome.png Graphic file (type bmp)
 <figures/stacked_highincome.png>
 File: figures/stacked_lowermiddle.png Graphic file (type bmp)
@@ -1516,9 +1517,9 @@ File: figures/pp_ssa.png Graphic file (type bmp)
 <figures/pp_ssa.png>
 File: figures/pp_world.png Graphic file (type bmp)
 <figures/pp_world.png>
-[32
+[43
 
-] [33] (./tables/kofcomparison.tex
+] [44] (./tables/kofcomparison.tex
 Overfull \hbox (7.11998pt too wide) in paragraph at lines 38--38
 [][] 
  []
@@ -1557,9 +1558,10 @@ Overfull \hbox (0.71945pt too wide) in paragraph at lines 38--38
 [][] 
  []
 
-) (./tables/number.tex) [34
+) [45
 
-] (./tables/coverage.tex) [35] (./tables/availability.tex [36] [37]) [38]
+] (./tables/number.tex) (./tables/coverage.tex) [46] (./tables/availability.tex
+[47] [48]) [49]
 File: figures/maps/NEET_total.png Graphic file (type bmp)
 <figures/maps/NEET_total.png>
 File: figures/maps/wcratio_total.png Graphic file (type bmp)
@@ -1598,11 +1600,11 @@ File: figures/Northern_Africa_spider.png Graphic file (type bmp)
 <figures/Northern_Africa_spider.png>
 File: figures/Sub-Saharan_Africa_spider.png Graphic file (type bmp)
 <figures/Sub-Saharan_Africa_spider.png>
-[39
+[50
 
-] [40] [41] [42] [43] [44] [45] (./tables/ranking_bygender.tex [46
+] [51] [52] [53] [54] [55] [56] (./tables/ranking_bygender.tex [57
 
-] [47]) [48] (./tables/dimensions_bygender.tex
+] [58]) [59] (./tables/dimensions_bygender.tex
 Underfull \hbox (badness 10000) in paragraph at lines 71--71
 []|\TU/texgyrepagella(2)/m/n/10 Papua New
  []
@@ -1612,9 +1614,9 @@ Overfull \hbox (61.19893pt too wide) in alignment at lines 3--80
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-[49
+[60
 
-])
+] [61])
 File: figures/maps/diff_YLILI.png Graphic file (type bmp)
 <figures/maps/diff_YLILI.png>
 File: figures/maps/diff_transition.png Graphic file (type bmp)
@@ -1623,7 +1625,7 @@ File: figures/maps/diff_working_conditions.png Graphic file (type bmp)
 <figures/maps/diff_working_conditions.png>
 File: figures/maps/diff_education.png Graphic file (type bmp)
 <figures/maps/diff_education.png>
-[50] [51] [52] (./tables/altscores.tex
+[62] [63] [64] (./tables/altscores.tex
 Overfull \hbox (48.40804pt too wide) in alignment at lines 6--67
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
@@ -1631,12 +1633,12 @@ Overfull \hbox (48.40804pt too wide) in alignment at lines 6--67
 [1
 
 
-]) [2]
+] [2]) [3]
 File: figures/fig-arithgeom-1.pdf Graphic file (type pdf)
 <use figures/fig-arithgeom-1.pdf>
 File: figures/fig-imputedraw-1.pdf Graphic file (type pdf)
 <use figures/fig-imputedraw-1.pdf>
-[55
+[67
 
 ] (./index.aux)
 
@@ -1649,10 +1651,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  24766 strings out of 476179
  472721 string characters out of 5809544
- 1027519 words of memory out of 5000000
+ 1027521 words of memory out of 5000000
  45001 multiletter control sequences out of 15000+600000
  480831 words of font info for 140 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  86i,17n,123p,2056b,762s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (55 pages).
+Output written on index.pdf (68 pages).

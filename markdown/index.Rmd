@@ -87,6 +87,7 @@ regions$country <- regions$country %>% #fix country names to match ILOSTAT for j
          "Democratic People's Republic of Korea" = "Korea, Democratic People's Republic of")
 ```
 
+\doublespacing
 
 # Introduction
 
