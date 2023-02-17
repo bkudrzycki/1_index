@@ -48,12 +48,12 @@ comp <- full_join(male, female, by = c("country", "country_code"), suffix = c("_
 p1 <- ggplot(comp, aes(x = index_mean_male, y = index_mean_female, label = country_code)) +
   geom_point(aes(color = `Region`)) +
   geom_abline(slope = 1) +
-  annotate("text", x=80, y=98, label= "Overall", size = 4.5) +
+  annotate("text", x=80, y=98, label= "Overall", size = 4, family="Palatino") +
   xlab("Male Score") +
   ylab("") +
   scale_color_viridis_d(option = "inferno", end = 0.7) +
   theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5), axis.title.x=element_text(hjust=.575)) +
+  theme(text=element_text(family="Palatino")) +
   geom_text_repel(aes(label=country_code),size = 3) +
   xlim(50,100) +
   ylim(50,100) 
@@ -66,6 +66,7 @@ p2 <-ggplot(comp, aes(x = transition_mean_male, y = transition_mean_female, labe
   ylab("") +
   scale_color_viridis_d(option = "inferno", end = 0.7) +
   theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5, size = 12), text=element_text(family="Palatino")) +
   guides(color="none") +
   #geom_text_repel(aes(label=country_code),size = 3) +
   xlim(20,100) +
@@ -79,6 +80,7 @@ p3 <-ggplot(comp, aes(x = working_conditions_mean_male, y = working_conditions_m
   ylab("") +
   scale_color_viridis_d(option = "inferno", end = 0.7) +
   theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5, size = 12), text=element_text(family="Palatino")) +
   guides(color="none") +
   #geom_text_repel(aes(label=country_code),size = 3) +
   xlim(20,100) +
@@ -92,12 +94,13 @@ p4 <-ggplot(comp, aes(x = education_mean_male, y = education_mean_female, label 
   ylab("") +
   scale_color_viridis_d(option = "inferno", end = 0.7) +
   theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5, size = 12), text=element_text(family="Palatino")) +
   guides(color="none") +
   #geom_text_repel(aes(label=country_code),size = 3) +
   xlim(20,100) +
   ylim(20,100)
 
-yaxis = textGrob("Female Score", rot = 90, vjust = 0.5, hjust = -.15)
+yaxis = textGrob("Female Score", rot = 90, vjust = 0.61, hjust = -.15, gp=gpar(fontfamily = "Palatino"))
 
 grid.arrange(yaxis, p1, p2, p3, p4, heights = c(3,2,2,2), widths = c(.05,1,1,1),
              layout_matrix = rbind(c(1,3,4,5), c(1,2,2,2), c(1,2,2,2), c(1,2,2,2)))
@@ -225,45 +228,58 @@ ggplot(df, aes(x = unemp_r, y = index_mean, label = country_code)) +
 
 # generating function
 
+addline_format <- function(x,...){
+  gsub('\\s','\n',x)
+}
+
 spider <- function(x, region) {
   x <- x %>% 
     filter(region2 == region)
   
   x <- x[,-1]
   
-  x <- rbind(rep(100,5) , rep(0,5) , x)
+  x <- rbind(rep(100,11) , rep(0,11) , x)
   
   radarchart( x , axistype=6,
               maxmin = TRUE,
               #custom polygon
-              pcol="black" , pfcol=gray(.5, .5), plwd=4 , plty=1,
+              pcol="black" , pfcol=gray(.5, .5), plwd=3 , plty=1,
               #custom the grid
               cglcol="grey", cglty=1, axislabcol="grey",
               #custom labels
-              vlcex=0.8 ,
-              vlabels = addline_format(c("Overall YLILI", "NEET", "Working Conditions Ratio", "Mismatch", "Working Poverty", "Under- employment",  "Informality",  "Elementary", "No Secondary", "Literacy", "Test Scores")),
-              title = region)
+              vlcex=0.6 ,
+              vlabels = addline_format(c("Overall YLILI", "NEET", "Working Conditions Ratio", "Mismatch", "Working Poverty", "Under- employment",  "Informality",  "Elementary", "No Secondary", "Literacy", "Test Scores")))
 }
 
 df <- left_join(rank, regions, by = c("country")) %>% 
   filter(!is.na(index_mean))
 
 df <- df %>% 
-  mutate(region2 = ifelse(`Region Name` == "Asia", "Asia", `Sub-region Name`))
-
+  mutate(region2 = case_when(`Region` == "Asia" ~ "Asia",
+                          `Region` == "Europe" ~ "Eastern Europe",
+                          `Sub-region Name` == "Latin America" ~ "Latin America",
+                          `Sub-region Name` == "Northern Africa" ~ "Northern Africa",
+                          `Sub-region Name` == "Sub-Saharan Africa" ~ "Sub-Saharan Africa"))
+                          
 x <- df %>% 
-  dplyr::select(country, region2, "Overall YLILI" = index_mean, "NEET" = neet, "Working\nConditions\nRatio" = relative_wc, "Mismatch" = mismatch, "Working\nPoverty" = workingpov, "Under-\nemployment" = underemp, "Informality" = informal, "Elementary\nOccupations" = elementary, "No\nSecondary\nSchooling" = nosecondary, "Literacy" = literacy, "Test Scores" = test_scores) %>% 
+  dplyr::select(country, region2, index_mean, neet, relative_wc, mismatch, workingpov, underemp, informal, elementary, nosecondary, literacy, test_scores) %>% 
   group_by(region2) %>% 
   summarise_at(vars(-country), ~ mean(., na.rm = TRUE)) %>% 
   as.data.frame()
 
-p1 <- spider(x, "Asia")
-p2 <- spider(x, "Eastern Africa")
-p3 <- spider(x, "Middle Africa")
-p4 <- spider(x, "Southern Africa")
-p5 <- spider(x, "Western Africa")
-
-grid.arrange(p1, p2, p3, p4, p5)
+spider(x, "Asia")
+mtext(side = 3, line = 0, at = 0, cex = 1, "Asia")
+spider(x, "Eastern Europe")
+mtext(side = 3, line = 0, at = 0, cex = 1, "Eastern Europe")
+spider(x, "Latin America")
+mtext(side = 3, line = 1, at = 0, cex = 1, ".", col = "white") # hack to generate white space
+mtext(side = 3, line = 0, at = 0, cex = 1, "Latin America")
+spider(x, "Northern Africa")
+mtext(side = 3, line = 1, at = 0, cex = 1, ".", col = "white")
+mtext(side = 3, line = 0, at = 0, cex = 1, "Northern Africa")
+spider(x, "Sub-Saharan Africa")
+mtext(side = 3, line = 1, at = 0, cex = 1, ".", col = "white")
+mtext(side = 3, line = 0, at = 0, cex = 1, "Sub-Saharan Africa")
 
 ## ---- fig-arithgeom --------
 

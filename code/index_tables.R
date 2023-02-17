@@ -197,7 +197,7 @@ m6 <- lm(data = df, index_mean ~ log_gdp + youth_ratio + fertility_rate)
 m7 <- lm(data = df, index_mean ~ log_gdp + youth_ratio + fertility_rate + agriculture + manu_value + export)
 m8 <- lm(data = df, index_mean ~ youth_ratio + fertility_rate + agriculture + manu_value + export + fdi + savings_rate + doing_business + urban_pop + access_to_elec)
 
-stargazer(m1, m2, m3, m4, m5, m6, m7, m8, omit.stat = c("f", "adj.rsq", "ser"), column.sep.width = "-5pt", dep.var.caption = "\\textit{Dependent variable:} YLILI Score", dep.var.labels = FALSE, omit = "Constant", font.size= "footnotesize", column.labels = NULL, no.space=TRUE, table.placement = "H", digits = 3, header = F,
+stargazer(m1, m2, m3, m4, m5, m6, m7, m8, omit.stat = c("f", "adj.rsq", "ser"), column.sep.width = "-5pt", dep.var.caption = "\\textit{Dependent variable:} YLILI Score", dep.var.labels.include = FALSE, omit = "Constant", font.size= "footnotesize", column.labels = NULL, no.space=TRUE, table.placement = "H", digits = 3, header = F,
           covariate.labels = c("Youth unemployment rate", 
                                "HDI Score ($\\times$ 100)", 
                                "log(GDP)", 
@@ -229,13 +229,13 @@ m13 <- lm(data = df, working_conditions_mean ~ log_gdp + youth_ratio + fertility
 
 m14 <- lm(data = df, education_mean ~ log_gdp + youth_ratio + fertility_rate + agriculture + manu_value + export)
 
-stargazer(m9, m10, m11, m12, m13, m14, omit.stat = c("f", "adj.rsq", "ser"), column.sep.width = "-2pt", column.labels  = c("Overall", "Male", "Female", "Transition", "Work. cond.", "Education"), dep.var.labels = c("", "\\textit{\\underline{YLILI score}}", "", "", "\\textit{\\underline{Dimension}}", ""), header = F, digits = 3,
+stargazer(m9, m10, m11, m12, m13, m14, omit.stat = c("f", "adj.rsq", "ser"), column.sep.width = "-2pt", table.placement = "H", column.labels  = c("Overall", "Male", "Female", "Transition", "Work. cond.", "Education"), dep.var.labels = c("", "\\textit{\\underline{YLILI score}}", "", "", "\\textit{\\underline{Dimension}}", ""), header = F, digits = 3,
           covariate.labels = c("log(GDP)",
                                "Youth pop. ratio ($\\times$ 100)",
                                "Fertility rate", "Agriculture (\\% of GDP)",
                                "Manufacturing (\\% of GDP)",
                                "Exports (\\% of GDP)"),
-          omit = "Constant", font.size= "footnotesize", model.numbers = FALSE, float = FALSE, notes = "Standard errors shown in parentheses. YLILI score is on a scale of 0-100.", title = "Macro correlates, gender-specific YLILI and YLILI dimensions", label = "tab:tbl-regwide")
+          title = "Macro correlates, gender-specific YLILI and YLILI dimensions", omit = "Constant", font.size= "footnotesize", model.numbers = FALSE, notes = "Standard errors shown in parentheses. YLILI score is on a scale of 0-100.", label = "tab:tbl-regwide")
 
 ## ---- tbl-gender --------
 

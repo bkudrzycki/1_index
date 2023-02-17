@@ -1548,10 +1548,7 @@
   </macro>
   <macro name="access">
     <choose>
-      <if variable="DOI" match="any">
-        <text variable="DOI" prefix="https://doi.org/"/>
-      </if>
-      <else-if variable="URL">
+      <if variable="URL">
         <group delimiter=" ">
           <choose>
             <if variable="issued status" match="none">
@@ -1564,7 +1561,7 @@
           </choose>
           <text variable="URL"/>
         </group>
-      </else-if>
+      </if>
     </choose>
   </macro>
   <macro name="event">
