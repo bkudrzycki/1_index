@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.15)  17 FEB 2023 18:13
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.15)  17 FEB 2023 18:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1348,13 +1348,13 @@ LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
 \tf@toc=\write3
 \openout3 = `index.toc'.
 
-(./index.lof [2
-
-])
+(./index.lof)
 \tf@lof=\write4
 \openout4 = `index.lof'.
 
-(./index.lot)
+(./index.lot [2
+
+])
 \tf@lot=\write5
 \openout5 = `index.lot'.
 
@@ -1576,7 +1576,9 @@ File: figures/maps/diff_working_conditions.png Graphic file (type bmp)
 <figures/maps/diff_working_conditions.png>
 File: figures/maps/diff_education.png Graphic file (type bmp)
 <figures/maps/diff_education.png>
-[63] [64] [65] (./tables/altscores.tex
+[63] [64] [65] [66
+
+] (./tables/altscores.tex
 Overfull \hbox (751.72191pt too wide) detected at line 7
  [] 
  []
@@ -1588,22 +1590,21 @@ Overfull \hbox (48.40804pt too wide) in alignment at lines 6--67
 
 [1
 
-
 ] [2]) [3]
 File: figures/fig-arithgeom-1.pdf Graphic file (type pdf)
 <use figures/fig-arithgeom-1.pdf>
 File: figures/fig-imputedraw-1.pdf Graphic file (type pdf)
 <use figures/fig-imputedraw-1.pdf>
-[68
+[69
 
 ] (./index.aux) ) 
 Here is how much of TeX's memory you used:
- 24743 strings out of 476179
- 471448 string characters out of 5809544
- 1025924 words of memory out of 5000000
- 44977 multiletter control sequences out of 15000+600000
+ 24736 strings out of 476179
+ 471360 string characters out of 5809544
+ 1025598 words of memory out of 5000000
+ 44970 multiletter control sequences out of 15000+600000
  480839 words of font info for 141 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 86i,17n,123p,2049b,752s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,17n,123p,2049b,730s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (69 pages).
+Output written on index.pdf (70 pages).

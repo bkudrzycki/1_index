@@ -14,11 +14,4 @@
 \contentsline {section}{\numberline {6}Discussion}{32}{section.6}%
 \contentsline {section}{References}{35}{section*.13}%
 \contentsline {section}{Appendix A}{38}{section*.14}%
-\contentsline {subsection}{\numberline {A.1}Index Construction}{38}{subsection.Alph0.1}%
-\contentsline {subsection}{\numberline {A.2}Index Correlations}{40}{subsection.Alph0.2}%
-\contentsline {subsection}{\numberline {A.3}Demographics by Income Level}{42}{subsection.Alph0.3}%
-\contentsline {section}{Appendix B}{44}{section*.20}%
-\contentsline {subsection}{\numberline {B.4}Availability of Indicators}{44}{subsection.Alph0.4}%
-\contentsline {subsection}{\numberline {B.5}Geographic distribution of YLILI scores}{50}{subsection.Alph0.5}%
-\contentsline {subsection}{\numberline {B.6}The gender YLILI}{57}{subsection.Alph0.6}%
-\contentsline {subsection}{\numberline {B.7}Robustness}{}{subsection.Alph0.7}%
+\contentsline {section}{Appendix B}{44}{section*.23}%

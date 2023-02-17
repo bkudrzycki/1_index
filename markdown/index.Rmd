@@ -234,7 +234,7 @@ Existing indices of youth well-being, such as Youth Progress Index and the Youth
 
 \noindent The growth in the absolute number of youth has increased much faster in LICs and LMICs than in richer countries (Figure \@ref(fig:fig-youthpop)). At 60\% of the total population, the share of youth below 25 in LICs is double that of HICs and rising (Figure \@ref(fig:fig-stacked) in section \@ref(demographics) of the Appendix). This youth population boom is driven primarily by demographic change in Africa, which has been underway for decades thanks in large part to plummeting child mortality [@ortiz-ospina2016]. The under-20 population in Africa increased by 25.6 percent between 2009 and 2019, and is expected to outnumber the remaining population on the continent by 2070 [@africandevelopmentbank2019]. African populations are already significantly younger than in the rest of the world (Appendix Figure \@ref(fig:fig-pyramids)), with a median age, currently at around 18 years, that is unlikely to exceed 21 before 2035. By comparison, by this time, the median person in the world will be aged 35, and the median person in East Asia will be as old as 45 [@filmer2014].
 
-```{r, fig-youthpop, fig.align = "center", out.width = '49%', fig.show='hold', fig.cap="World youth population, 1960-2020 \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
+```{r, fig-youthpop, fig.align = "center", out.width = '49%', fig.show='hold', fig.scap = "World youth population, 1960-2020", fig.cap="World youth population, 1960-2020 \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
 knitr::include_graphics(c("figures/relative_population.png", "figures/total_population.png"))
 ```
 
@@ -319,7 +319,7 @@ Finally, the YLILI shows the usefulness of detailed, gender-disaggregated data, 
 \renewcommand{\thetable}{A\arabic{table}}
 \renewcommand{\thesection}{A}
 
-## Index Construction {#weights}
+## Index Construction {-#weights .unlisted}
 The working conditions ratio and harmonized test scores indicators are converted into a unit-less "progress score" ranging from 0 to 100 using the standard Min-Max method as follows: 
 $$ s_{idc}= \Bigl(\frac{\text{value}_{idc}- \text{min}_{id}}{ \text{max}_{id} - \text{min}_{id}} \Bigl) \cdot 100 $$
 \vspace*{5pt}
@@ -331,7 +331,7 @@ A further design choice concerns the method of aggregation across indicators and
 
 Geometric means are more appropriate for comparing items measured on different scales. The majority of the YLILI indicators are on the natural 0-100 percentage scale, but vary somewhat in distribution. It has also been suggested that multiplicative aggregation is more appropriate when good performance on all component dimensions is required simultaneously for a high aggregate score [@sagar1998], i.e., a country cannot score reasonably well while completely failing in a particular dimension. When using arithmetic means, changes in components enters the aggregate in absolute terms. For example, an increase from 1\% to 2\% in a given indicator would increase the aggregate by 1\% times the weight of the indicator. If using the geometric mean, on the other, the change in the aggregate would reflect the relative change in the indicator---100\% times its weight. A comparison of the two methods reveals close agreement in the final index scores (see Section \@ref(robustness)); we refer to the score generated using the arithmetic mean in this paper due to its easier intuitive interpretation.
 
-## Index Correlations {#correlations}
+## Index Correlations {-#correlations .unlisted}
 
 ```{r, fig-indexgdp, fig.align = "center", fig.height=4, fig.pos='H', fig.cap="Correlation, YLILI score and GDP per capita"}
 ```
@@ -339,18 +339,18 @@ Geometric means are more appropriate for comparing items measured on different s
 ```{r, fig-indexunemp, fig.align = "center", fig.height=4, fig.pos='H', fig.cap="Correlation, YLILI score and national youth unemployment rate"}
 ```
 
-```{r, fig-cormat, fig.align = "center", fig.height=8, fig.pos='H', fig.cap="Correlation matrix (× = insignificant at p < 0.05)"}
+```{r, fig-cormat, fig.align = "center", fig.height=8, fig.pos='H', fig.scap = "Correlation matrix", fig.cap="Correlation matrix (× = insignificant at p < 0.05)"}
 ```
 
 \clearpage
 
-## Demographics by Income Level {#demographics}
+## Demographics by Income Level {-#demographics .unlisted}
 
-```{r fig-stacked, fig.align = "center", out.width = '49%', fig.show='hold', fig.cap="Share of world population by age group, 1960-2020 \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
+```{r fig-stacked, fig.align = "center", out.width = '49%', fig.show='hold', fig.scap = "Share of world population by age group, 1960-2020", fig.cap="Share of world population by age group, 1960-2020 \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
 knitr::include_graphics(c("figures/stacked_highincome.png", "figures/stacked_lowermiddle.png", "figures/stacked_highermiddle.png", "figures/stacked_lowincome.png"))
 ```
 
-```{r fig-pyramids, fig.align = "center", out.width = '49%', fig.show='hold', fig.cap="Population pyramids for sub-Saharan Africa (left) vs. the world (right) \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
+```{r fig-pyramids, fig.align = "center", out.width = '49%', fig.show='hold', fig.scap = "Population pyramids for sub-Saharan Africa", fig.cap="Population pyramids for sub-Saharan Africa (left) vs. the world (right) \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
 knitr::include_graphics(c("figures/pp_ssa.png", "figures/pp_world.png"))
 ```
 
@@ -364,7 +364,7 @@ knitr::include_graphics(c("figures/pp_ssa.png", "figures/pp_world.png"))
 \renewcommand{\thetable}{B\arabic{table}}
 \renewcommand{\thesection}{B}
 
-## Availability of Indicators {#availability}
+## Availability of Indicators {-#availability .unlisted}
 
 Table \@ref(tab:tbl-kofcomp) shows the indicators included in the KOF Youth Labor Market Index [@renold2014] and the corresponding YLILI indicator, if available. While grouping into dimensions remained roughly similar for the two indices, most indicators from the KOF YLMI were dropped or replaced in the YLILI, either for lack of availability or because more relevant indicators were needed for developing economies.
 
@@ -391,7 +391,7 @@ Table \@ref(tab:tbl-numind) shows the number of available indicators by year for
 
 \clearpage
 
-## Geographic distribution of YLILI scores
+## Geographic distribution of YLILI scores {-#maps .unlisted}
 
 ```{r, fig-transitionmap, echo=FALSE, fig.align = "center", out.width = '70%', fig.show='hold', fig.cap="Indicators of the transition dimension depicted by country"}
 knitr::include_graphics(c("figures/maps/NEET_total.png", "figures/maps/wcratio_total.png", "figures/maps/skillsmismatch_total.png"))
@@ -417,7 +417,7 @@ knitr::include_graphics(c("figures/maps/transition_total.png", "figures/maps/wor
 ```
 
 \clearpage 
-## The gender YLILI
+## The gender YLILI {-#genderylili .unlisted}
 \input{tables/ranking_bygender}
 
 ```{r tbl-gender, results = "asis"}
@@ -437,8 +437,9 @@ knitr::include_graphics(c("figures/maps/diff_transition.png", "figures/maps/diff
 
 \clearpage
 
+## Robustness {-#altscores .unlisted}
+
 \begin{landscape}
-\subsection{Robustness}\label{app:altscores}
 
 \input{tables/altscores.tex}
 
