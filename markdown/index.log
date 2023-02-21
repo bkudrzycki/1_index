@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.15)  17 FEB 2023 18:41
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.15)  21 FEB 2023 15:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1411,30 +1411,25 @@ Overfull \hbox (15.17572pt too wide) in paragraph at lines 6--19
  []
 
 ) [31] [32] [33] [34]
-Overfull \hbox (10.17096pt too wide) in paragraph at lines 579--581
+Overfull \hbox (14.759pt too wide) in paragraph at lines 576--578
 []\TU/texgyrepagella(0)/m/n/10.95 Dewan, S., Peek, P., and International Labour
- Office. (2007). \TU/texgyrepagella(0)/m/it/10.95 Beyond the employment/unemplo
+ Office. (2007). \TU/texgyrepagella(0)/m/it/10.95 Beyond the Employment/Unemplo
 yment
  []
 
 [35
 
-] [36]
-Overfull \hbox (107.03004pt too wide) in paragraph at lines 642--644
-[]\TU/texgyrepagella(0)/m/n/10.95 OECD. (2019). \TU/texgyrepagella(0)/m/it/10.9
-5 Youth on in employment, education, or training (NEET) indicator\TU/texgyrepag
-ella(0)/m/n/10.95 . https://data.oecd.org/youthinac/youth-
- []
+] [36] [37] [38] [39
 
-[37] [38]
+]
 File: figures/fig-indexgdp-1.pdf Graphic file (type pdf)
 <use figures/fig-indexgdp-1.pdf>
-[39]
 File: figures/fig-indexunemp-1.pdf Graphic file (type pdf)
 <use figures/fig-indexunemp-1.pdf>
+[40]
 File: figures/fig-cormat-1.pdf Graphic file (type pdf)
 <use figures/fig-cormat-1.pdf>
-[40] [41]
+[41] [42]
 File: figures/stacked_highincome.png Graphic file (type bmp)
 <figures/stacked_highincome.png>
 File: figures/stacked_lowermiddle.png Graphic file (type bmp)
@@ -1447,9 +1442,9 @@ File: figures/pp_ssa.png Graphic file (type bmp)
 <figures/pp_ssa.png>
 File: figures/pp_world.png Graphic file (type bmp)
 <figures/pp_world.png>
-[42
+[43
 
-] [43] (./tables/kofcomparison.tex
+] [44] (./tables/kofcomparison.tex
 Overfull \hbox (7.11998pt too wide) in paragraph at lines 38--38
 [][] 
  []
@@ -1484,10 +1479,10 @@ Overfull \hbox (0.71945pt too wide) in paragraph at lines 38--38
 [][] 
  []
 
-) [44
+) [45
 
-] (./tables/number.tex) [45] (./tables/coverage.tex) [46] (./tables/availabilit
-y.tex [47]
+] (./tables/number.tex) [46] (./tables/coverage.tex) [47] (./tables/availabilit
+y.tex [48]
 Overfull \hbox (367.60963pt too wide) detected at line 8
  [] 
  []
@@ -1497,7 +1492,7 @@ Underfull \hbox (badness 10000) in alignment at lines 7--92
  [] [] [] [] [] [] [] [] [] []
  []
 
-[48]) [49]
+[49]) [50]
 File: figures/maps/NEET_total.png Graphic file (type bmp)
 <figures/maps/NEET_total.png>
 File: figures/maps/wcratio_total.png Graphic file (type bmp)
@@ -1536,9 +1531,9 @@ File: figures/fig-spider-4.pdf Graphic file (type pdf)
 <use figures/fig-spider-4.pdf>
 File: figures/fig-spider-5.pdf Graphic file (type pdf)
 <use figures/fig-spider-5.pdf>
-[50
+[51
 
-] [51] [52] [53] [54] [55] [56] (./tables/ranking_bygender.tex [57
+] [52] [53] [54] [55] [56] [57] (./tables/ranking_bygender.tex [58
 
 ]
 Overfull \hbox (430.20561pt too wide) detected at line 5
@@ -1550,7 +1545,7 @@ Underfull \hbox (badness 10000) in alignment at lines 4--61
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] []
  []
 
-[58]) [59] [60] (./tables/dimensions_bygender.tex
+[59]) [60] [61] (./tables/dimensions_bygender.tex
 Overfull \hbox (498.49248pt too wide) detected at line 4
  [] 
  []
@@ -1565,9 +1560,9 @@ Overfull \hbox (61.19893pt too wide) in alignment at lines 3--80
  [] [] [] [] [] [] [] [] [] [] [] [] [] []
  []
 
-[61
+[62
 
-] [62])
+] [63])
 File: figures/maps/diff_YLILI.png Graphic file (type bmp)
 <figures/maps/diff_YLILI.png>
 File: figures/maps/diff_transition.png Graphic file (type bmp)
@@ -1576,7 +1571,7 @@ File: figures/maps/diff_working_conditions.png Graphic file (type bmp)
 <figures/maps/diff_working_conditions.png>
 File: figures/maps/diff_education.png Graphic file (type bmp)
 <figures/maps/diff_education.png>
-[63] [64] [65] [66
+[64] [65] [66] [67
 
 ] (./tables/altscores.tex
 Overfull \hbox (751.72191pt too wide) detected at line 7
@@ -1595,7 +1590,7 @@ File: figures/fig-arithgeom-1.pdf Graphic file (type pdf)
 <use figures/fig-arithgeom-1.pdf>
 File: figures/fig-imputedraw-1.pdf Graphic file (type pdf)
 <use figures/fig-imputedraw-1.pdf>
-[69
+[70
 
 ] (./index.aux) ) 
 Here is how much of TeX's memory you used:
@@ -1607,4 +1602,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  86i,17n,123p,2049b,730s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (70 pages).
+Output written on index.pdf (71 pages).

@@ -602,6 +602,7 @@
       <if type="post webpage" match="any">
         <!-- Webpages are always italicized -->
         <text variable="title" font-style="italic"/>
+        <text variable="URL"/>
       </if>
       <else-if variable="container-title" match="any">
         <!-- Other types are italicized based on presence of container-title.
