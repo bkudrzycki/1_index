@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.15)  21 FEB 2023 18:27
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.9.15)  22 FEB 2023 22:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1348,7 +1348,12 @@ LaTeX Font Info:    Font shape `TU/texgyrepagella-math.otf(3)/m/n' will be
 \tf@toc=\write3
 \openout3 = `index.toc'.
 
-(./index.lof)
+(./index.lof
+Overfull \hbox (0.52559pt too wide) detected at line 18
+\TU/texgyrepagella(0)/m/n/10.95 B3.10 
+ []
+
+)
 \tf@lof=\write4
 \openout4 = `index.lof'.
 
@@ -1596,10 +1601,10 @@ File: figures/fig-imputedraw-1.pdf Graphic file (type pdf)
 Here is how much of TeX's memory you used:
  24736 strings out of 476179
  471360 string characters out of 5809544
- 1025598 words of memory out of 5000000
+ 1025646 words of memory out of 5000000
  44970 multiletter control sequences out of 15000+600000
  480839 words of font info for 141 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 86i,17n,123p,2049b,730s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,17n,123p,2043b,730s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on index.pdf (71 pages).
