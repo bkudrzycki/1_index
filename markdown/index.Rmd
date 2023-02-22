@@ -311,12 +311,12 @@ Finally, the YLILI shows the usefulness of detailed, gender-disaggregated data, 
 
 \clearpage
 
-# Appendix A {-#appendix-a}
+# Appendix A3 {-#appendix-a}
 
 \setcounter{figure}{0}
-\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\thefigure}{A3.\arabic{figure}}
 \setcounter{table}{0}
-\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand{\thetable}{A3.\arabic{table}}
 
 ## Index Construction {-#weights .unlisted}
 The working conditions ratio and harmonized test scores indicators are converted into a unit-less "progress score" ranging from 0 to 100 using the standard Min-Max method as follows: 
@@ -355,12 +355,12 @@ knitr::include_graphics(c("figures/pp_ssa.png", "figures/pp_world.png"))
 
 \clearpage
 
-# Appendix B {-#appendix-b}
+# Appendix B3 {-#appendix-b}
 
 \setcounter{figure}{0}
-\renewcommand{\thefigure}{B\arabic{figure}}
+\renewcommand{\thefigure}{B3.\arabic{figure}}
 \setcounter{table}{0}
-\renewcommand{\thetable}{B\arabic{table}}
+\renewcommand{\thetable}{B3.\arabic{table}}
 
 ## Availability of Indicators {-#availability .unlisted}
 
