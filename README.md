@@ -10,9 +10,9 @@ The paper can be replicated in RStudio in two ways:
   1. by running "master.R" in the root folder, or
   2. by knitting the file "index.Rmd" in the /markdown folder (shift + cmd + k on Mac).
 
-Either method generates a PDF called "cnb_apprenticeship.pdf" in the /markdown folder. This is the full, replicated paper.
+Either method generates a PDF called "index.pdf" in the /markdown folder. This is the full, replicated paper.
 
-The default path "/Volumes/nadel/research/Data/PhDs/Bart 2022/Paper 3 - CQP" is used in master.R. If the project folder is copied into a different directory, this path name needs to be adjusted.
+The default path "/Volumes/nadel/research/Data/PhDs/Bart 2022/Paper 2 - Index" is used in master.R. If the project folder is copied into a different directory, this path name needs to be adjusted.
 
 As mentioned in the file "master.R", certain latex tables needed additional formatting and could not be generated directly in the Rmarkdown document. To replicate these tables, simply run the script "code/index_tables_for_replication.R" in the /code folder.
 
