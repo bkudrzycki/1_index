@@ -197,10 +197,10 @@ m6 <- lm(data = df, index_mean ~ log_gdp + youth_ratio + fertility_rate)
 m7 <- lm(data = df, index_mean ~ log_gdp + youth_ratio + fertility_rate + agriculture + manu_value + export)
 m8 <- lm(data = df, index_mean ~ youth_ratio + fertility_rate + agriculture + manu_value + export + fdi + savings_rate + doing_business + urban_pop + access_to_elec)
 
-stargazer(m1, m2, m3, m4, m5, m6, m7, m8, omit.stat = c("f", "adj.rsq", "ser"), column.sep.width = "-5pt", dep.var.caption = "\\textit{Dependent variable:} YLILI Score", dep.var.labels.include = FALSE, omit = "Constant", font.size= "footnotesize", column.labels = NULL, no.space=TRUE, table.placement = "H", digits = 3, header = F,
+stargazer(m1, m2, m3, m4, m5, m6, m7, m8, omit.stat = c("f", "adj.rsq", "ser"), column.sep.width = "-5pt", dep.var.caption = "\\textit{Dependent variable:} YLILI Score", dep.var.labels.include = FALSE, omit = "Constant", font.size= "scriptsize", column.labels = NULL, no.space=TRUE, table.placement = "H", digits = 3, header = F,
           covariate.labels = c("Youth unemployment rate", 
                                "HDI Score ($\\times$ 100)", 
-                               "log(GDP)", 
+                               "log GDP", 
                                "Youth pop. ratio ($\\times$ 100)", 
                                "Fertility rate", "Agriculture (\\% of GDP)", 
                                "Manufacturing (\\% of GDP)", "Exports (\\% of GDP)",
@@ -208,7 +208,13 @@ stargazer(m1, m2, m3, m4, m5, m6, m7, m8, omit.stat = c("f", "adj.rsq", "ser"), 
                                "Ease of Doing Business",
                                "Urbanization rate",
                                "Access to Electricity"), 
-        notes = "Standard errors shown in parentheses. YLILI score is on a scale of 0-100.", notes.align = "r", notes.append = TRUE, title = "Macro correlates of YLILI score", label = "tab:tbl-macrocorr")
+          notes = c("$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01",
+                    "\\textit{Notes:} Standard errors shown in parentheses. YLILI score is on a scale of 0-100."),
+          notes.label = "", 
+          notes.align = "l", 
+          notes.append = F,
+          title = "Macro correlates of YLILI score",
+          label = "tab:tbl-macrocorr")
 
 ## ---- tbl-regwide --------
 
@@ -229,13 +235,22 @@ m13 <- lm(data = df, working_conditions_mean ~ log_gdp + youth_ratio + fertility
 
 m14 <- lm(data = df, education_mean ~ log_gdp + youth_ratio + fertility_rate + agriculture + manu_value + export)
 
-stargazer(m9, m10, m11, m12, m13, m14, omit.stat = c("f", "adj.rsq", "ser"), column.sep.width = "-2pt", table.placement = "H", column.labels  = c("Overall", "Male", "Female", "Transition", "Work. cond.", "Education"), dep.var.labels = c("", "\\textit{\\underline{YLILI score}}", "", "", "\\textit{\\underline{Dimension}}", ""), header = F, digits = 3,
-          covariate.labels = c("log(GDP)",
+stargazer(m9, m10, m11, m12, m13, m14, omit.stat = c("f", "adj.rsq", "ser"), column.sep.width = "-8pt", table.placement = "H", column.labels  = c("Overall", "Male", "Female", "Transition", "Work. cond.", "Education"), dep.var.labels = c("", "\\textit{\\underline{YLILI score}}", "", "", "\\textit{\\underline{Dimension}}", ""), header = F, digits = 3,
+          covariate.labels = c("log GDP",
                                "Youth pop. ratio ($\\times$ 100)",
                                "Fertility rate", "Agriculture (\\% of GDP)",
                                "Manufacturing (\\% of GDP)",
                                "Exports (\\% of GDP)"),
-          title = "Macro correlates, gender-specific YLILI and YLILI dimensions", omit = "Constant", font.size= "footnotesize", model.numbers = FALSE, notes = "Standard errors shown in parentheses. YLILI score is on a scale of 0-100.", label = "tab:tbl-regwide")
+          title = "Macro correlates, gender-specific YLILI and YLILI dimensions",
+          omit = "Constant",
+          font.size= "footnotesize",
+          model.numbers = FALSE,
+          notes = c("$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01",
+                    "\\textit{Notes:} Standard errors shown in parentheses. YLILI score is on a scale of 0-100."),
+          notes.label = "", 
+          notes.align = "l", 
+          notes.append = F,
+          label = "tab:tbl-regwide")
 
 ## ---- tbl-gender --------
 
@@ -279,14 +294,15 @@ female <- female %>%
 
 gender_comp <- as.data.frame(cbind(male, female)) %>% mutate("$\\Delta$" = V1-V2) %>% rename("Male" = V1, "Female" = V2)
 
-kbl(gender_comp, col.names=c('Male', 'Female', '$\\Delta$'), align = 'l', 'latex', booktabs = T, linesep = "", escape = F, caption = "Mean YLILI dimension and indicator scores by gender", digits = 2) %>% 
+kbl(gender_comp, col.names=c('Male', 'Female', '$\\Delta$'), align = 'l', 'latex', booktabs = T, linesep = "\\addlinespace", escape = F, caption = "Mean YLILI dimension and indicator scores by gender", digits = 2) %>% 
   kableExtra::add_indent(positions = c(2:4)) %>% 
   kableExtra::add_indent(positions = c(6:10)) %>% 
   kableExtra::add_indent(positions = c(12:14)) %>% 
   kableExtra::row_spec(1, bold = TRUE) %>% 
+  kable_styling(font_size = 9) %>% 
   footnote(general = "\\\\textit{Notes:} Most recent observations, dating back no further than 2010. Rescaled indicator scores shown—higher values always correspond to better labor market outcomes.",
            threeparttable = T,
            escape = F,
-           fixed_small_size = T,
+           fixed_small_size = F,
            general_title = "")
 

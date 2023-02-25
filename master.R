@@ -1,6 +1,6 @@
 ## Master Script ##
 
-# set user path: e.g. /Volumes/nadel/research/Data/PhDs/Bart 2022/Paper 3 - CQP
+# set user path: e.g. /Volumes/nadel/research/Data/PhDs/Bart 2022/Paper 2 - Index
 
 path <- "~/polybox/Youth Employment/1b Index/Paper"
 
