@@ -10,9 +10,9 @@ abstract: |
 thanks: |
   Thanks to Dario for the Markdown template.
 keywords: [Informal labor markets, Developing Countries, Composite Indices]
+jel: [E24, E26, C43] # E24 Employment, E26 Informal Economy, C43 Index Numbers \& Aggregation
 classoption: a4paper, 12pt
 geometry: left=3cm, right=3cm
-jel: [E24, E26, C43] # E24 Employment, E26 Informal Economy, C43 Index Numbers \& Aggregation
 bibliography: index.bib
 csl: 'apa-no-ampersand.csl'
 output: 
@@ -467,6 +467,3 @@ knitr::include_graphics(c("figures/maps/diff_transition.png", "figures/maps/diff
 \input{tables/altscores.tex}
 
 \end{landscape}
-
-
-
