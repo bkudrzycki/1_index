@@ -89,8 +89,6 @@ regions$country <- regions$country %>% #fix country names to match ILOSTAT for j
          "Democratic People's Republic of Korea" = "Korea, Democratic People's Republic of")
 ```
 
-\doublespacing
-
 # Introduction
 
 Over the past three decades, the global share of youth residing in developing countries has increased by 20 percentage points, to a little over 50 percent of all youth in 2020 [@unitednationsdevelopmentprogramme2019]. This share is expected to continue to rise, and with it the number of young workers entering the workforce [@roser2019]. Lacking formal employment opportunities and facing unemployment without social security, youth in many low-income countries (LICs, as classified by the @worldbank2020a) and lower-middle income countries (LMICs) must resort to work that is irregular, underpaid, and lacking in benefits or advancement opportunities. Few can afford to be inactive for extended periods of job search after leaving school. In sub-Saharan Africa (SSA), where 40 percent of inhabitants are under the age of 15 and where youth population growth is outpacing formal job creation by a large margin, the "youth employment crisis" is increasingly also being seen as a "missing jobs" crisis [@sumberg2021]. Long unemployment spells reduce productive capacity in later life, curtailing youths' earnings potential and dampening the growth prospects of the economy [@gregg2005]. In the worst case, persistent difficulties in transitioning to gainful work can drive youth to political unrest and violence, as has been the case in the Middle East [@urdal2006].
@@ -462,8 +460,8 @@ knitr::include_graphics(c("figures/maps/diff_transition.png", "figures/maps/diff
 ```{r, fig-imputedraw, fig.align = "center", fig.height=3.5, fig.pos='H', fig.cap="YLILI with and without imputation"}
 ```
 
-\begin{landscape}
+<!-- \begin{landscape} -->
 
-\input{tables/altscores.tex}
+<!-- \input{tables/altscores.tex} -->
 
-\end{landscape}
+<!-- \end{landscape} -->
