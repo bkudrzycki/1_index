@@ -24,7 +24,7 @@ output:
 ---
 
 ```{r index_setup, include=FALSE}
-packages <- c("openxlsx", "tinytex", "bookdown", "gtsummary", "xtable", "stargazer", "data.table", "gridExtra", "fmsb", "grid", "ggrepel", "ggcorrplot", "tidyverse", "lamadex", "kableExtra")
+packages <- c("openxlsx", "tinytex", "bookdown", "gtsummary", "xtable", "stargazer", "data.table", "gridExtra", "fmsb", "grid", "ggrepel", "ggcorrplot", "tidyverse", "lamadex", "flextable", "kableExtra")
 
 options(repos = c(CRAN = "http://cran.rstudio.com"))
 
@@ -46,11 +46,16 @@ rm(installed_packages)
 knitr::read_chunk('../code/index_tables.R')
 knitr::read_chunk('../code/index_figures.R')
 
+# set knitr and flextable options
+set_flextable_defaults(font.family = 'Palatino',
+                       theme_fun = "theme_apa")
+
 knitr::opts_chunk$set(message=FALSE,
                       warning=FALSE,
                       echo = FALSE,
                       cache = TRUE,
                       fig.path='figures/',
+                      fig.pos = 'H', 
                       out.extra = "",
                       floatfoot.envs = c("figure", "table", "longtabu"))
 
@@ -222,7 +227,7 @@ We also find a strong and significant positive correlation between the share of 
 Next, we attempt to establish possible determinants of youth labor market performance as measured by the YLILI. To this end, we regress the overall YLILI score on a number of macroeconomic variables obtained from the World Bank Development Indicators [@worldbank2021b] and the Ease of Doing Business rankings [@worldbank2021a]. In each regression, the most recent available observation for each indicator-country pair is used. The first five columns of Table \@ref(tab:tbl-macrocorr) show the correlations between the overall country YLILI score and macroeconomic indicators of interest.
 
 \begin{singlespace}
-```{r, tbl-macrocorr, results = "asis", fig.pos='H'}
+```{r, tbl-macrocorr, results = "asis"}
 ```
 \end{singlespace}
 
@@ -236,7 +241,7 @@ Existing indices of youth well-being, such as Youth Progress Index and the Youth
 
 The growth in the absolute number of youth has increased much faster in LICs and LMICs than in richer countries (Figure \@ref(fig:fig-youthpop)). At 60\% of the total population, the share of youth below 25 in LICs is double that of HICs and rising (Figure \@ref(fig:fig-stacked) in section \@ref(demographics) of the Appendix). This youth population boom is driven primarily by demographic change in Africa, which has been underway for decades thanks in large part to plummeting child mortality [@ortiz-ospina2016]. The under-20 population in Africa increased by 25.6 percent between 2009 and 2019, and is expected to outnumber the remaining population on the continent by 2070 [@africandevelopmentbank2019]. African populations are already significantly younger than in the rest of the world (Appendix Figure \@ref(fig:fig-pyramids)), with a median age, currently at around 18 years, that is unlikely to exceed 21 before 2035. By comparison, by this time, the median person in the world will be aged 35, and the median person in East Asia will be as old as 45 [@filmer2014].
 
-```{r, fig-youthpop, fig.align = "center", out.width = '49%', fig.pos='H', fig.show='hold', fig.scap = "World youth population, 1960-2020", fig.cap="World youth population, 1960-2020 \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
+```{r, fig-youthpop, fig.align = "center", out.width = '49%', fig.show='hold', fig.scap = "World youth population, 1960-2020", fig.cap="World youth population, 1960-2020 \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
 knitr::include_graphics(c("figures/relative_population.png", "figures/total_population.png"))
 ```
 
@@ -267,7 +272,7 @@ Average dimension and indicator scores for the gender-specific YLILI are present
 
 The dimension scores for male and females are shown across the top panel of Figure \@ref(fig:fig-gendercorr). The gender differences are largest on the transition dimension, with a mean transition score of 82.3 for men and 75.56 for women. The gender gap in transition scores is driven primarily by high inactivity among young women: the average NEET rate for female youth in our sample is 33.5 percent, compared to 17.7 percent for males--- significantly higher than the global gap (31.1 percent for females versus 13.9 percent for males [@ilo2020]). Developing countries with the most exacerbated gender differences in the NEET rate are Afghanistan, Yemen, Pakistan, Bangladesh, and India, suggesting that regional cultural attitudes play an important role in determining female labor market participation.
 
-```{r, fig-gendercorr, fig.align = "center", fig.height=6, fig.pos='H', fig.cap="YLILI score by gender"}
+```{r, fig-gendercorr, fig.align = "center", fig.height=6, fig.cap="YLILI score by gender"}
 ```
 
 Conditional upon entering the labor market, young women appear to enjoy a higher quality of work than young men, scoring 0.74 points higher on the working conditions dimension. Countries at the top of the YLILI rankings in particular have lower rates of female informal and elementary work (Table \@ref(tab:tbl-gendiffdims) in the online Appendix). However, these rates only pertain to youth participating in the labor market, and thus neglect the substantial numbers of women working as caregivers or unpaid household laborers [@ilo2020], who are reflected instead in higher NEET rates for women.
@@ -339,24 +344,24 @@ Geometric means are more appropriate for comparing items measured on different s
 ## Index Correlations {-#correlations .unlisted}
 \markboth{Index Correlations}{Appendix A3}
 
-```{r, fig-indexgdp, fig.align = "center", fig.height=3.5, fig.pos='H', fig.cap="Correlation, YLILI score and GDP per capita"}
+```{r, fig-indexgdp, fig.align = "center", fig.height=3.5, fig.cap="Correlation, YLILI score and GDP per capita"}
 ```
 
-```{r, fig-indexunemp, fig.align = "center", fig.height=3.5, fig.pos='H', fig.cap="Correlation, YLILI score and national youth unemployment rate"}
+```{r, fig-indexunemp, fig.align = "center", fig.height=3.5, fig.cap="Correlation, YLILI score and national youth unemployment rate"}
 ```
 
-```{r, fig-cormat, fig.align = "center", fig.height=8, fig.pos='H', fig.scap = "Correlation matrix", fig.cap="Correlation matrix (× = insignificant at p < 0.05)"}
+```{r, fig-cormat, fig.align = "center", fig.height=8, fig.scap = "Correlation matrix", fig.cap="Correlation matrix (× = insignificant at p < 0.05)"}
 ```
 
 \clearpage
 
 ## Demographics by Income Level {-#demographics .unlisted}
 
-```{r fig-stacked, fig.align = "center", out.width = '43%', fig.show='hold', fig.pos='H', fig.scap = "Share of world population by age group, 1960-2020", fig.cap="Share of world population by age group, 1960-2020 \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
+```{r fig-stacked, fig.align = "center", out.width = '43%', fig.show='hold', fig.scap = "Share of world population by age group, 1960-2020", fig.cap="Share of world population by age group, 1960-2020 \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
 knitr::include_graphics(c("figures/stacked_highincome.png", "figures/stacked_lowermiddle.png", "figures/stacked_highermiddle.png", "figures/stacked_lowincome.png"))
 ```
 
-```{r fig-pyramids, fig.align = "center", out.width = '43%', fig.show='hold', fig.pos='H', fig.scap = "Population pyramids for sub-Saharan Africa", fig.cap="Population pyramids for sub-Saharan Africa (left) vs. the world (right) \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
+```{r fig-pyramids, fig.align = "center", out.width = '43%', fig.show='hold', fig.scap = "Population pyramids for sub-Saharan Africa", fig.cap="Population pyramids for sub-Saharan Africa (left) vs. the world (right) \\\\ \\textit{\\footnotesize{Source: World Population Prospects, United Nations (2019)}}"}
 knitr::include_graphics(c("figures/pp_ssa.png", "figures/pp_world.png"))
 ```
 
@@ -404,27 +409,27 @@ Finally, Table \ref{tab:tbl-avail} indicates how many indicators were utilized t
 ## Geographic distribution of YLILI scores {-#maps .unlisted}
 \markboth{Geographic distribution of YLILI scores}{Appendix B3}
 
-```{r, fig-transitionmap, fig.align = "center", out.width = '70%', fig.show='hold', fig.pos='H', fig.cap="Indicators of the transition dimension depicted by country"}
+```{r, fig-transitionmap, fig.align = "center", out.width = '70%', fig.show='hold', fig.cap="Indicators of the transition dimension depicted by country"}
 knitr::include_graphics(c("figures/maps/NEET_total.png", "figures/maps/wcratio_total.png", "figures/maps/skillsmismatch_total.png"))
 ```
 
-```{r, fig-workcondmap, fig.align = "center", out.width = '52%', fig.show='hold', fig.pos='H', fig.cap="Indicators of the working conditions dimension depicted by country"}
+```{r, fig-workcondmap, fig.align = "center", out.width = '52%', fig.show='hold', fig.cap="Indicators of the working conditions dimension depicted by country"}
 knitr::include_graphics(c("figures/maps/workingpoverty_total.png", "figures/maps/underemployment_total.png", "figures/maps/informal_total.png", "figures/maps/elementaryoccup_total.png"))
 ```
 
-```{r, fig-educationmap, fig.align = "center", out.width = '69%', fig.show='hold', fig.pos='H', fig.cap="Indicators of the education dimension depicted by country"}
+```{r, fig-educationmap, fig.align = "center", out.width = '69%', fig.show='hold', fig.cap="Indicators of the education dimension depicted by country"}
 knitr::include_graphics(c("figures/maps/secondaryeduc_total.png", "figures/maps/illiteracy_total.png", "figures/maps/harmonizedtest_total.png"))
 ```
 
-```{r, fig-worldmap, fig.align = "center", out.width = '100%', fig.pos='H', fig.cap = "Total YLILI depicted by country"}
+```{r, fig-worldmap, fig.align = "center", out.width = '100%', fig.cap = "Total YLILI depicted by country"}
 knitr::include_graphics("figures/maps/YLILI_total.png")
 ```
 
-```{r, fig-totalmap, fig.align = "center", out.width = '69%', fig.pos='H', fig.show='hold', fig.cap="Dimensions of the YLILI depicted by country"}
+```{r, fig-totalmap, fig.align = "center", out.width = '69%', fig.show='hold', fig.cap="Dimensions of the YLILI depicted by country"}
 knitr::include_graphics(c("figures/maps/transition_total.png", "figures/maps/working_conditions_total.png", "figures/maps/education_total.png"))
 ```
 
-```{r, fig-spider, out.width = '49%', fig.show='hold', fig.pos='H', fig.cap="Spider charts by world region"}
+```{r, fig-spider, out.width = '49%', fig.show='hold', fig.cap="Spider charts by world region"}
 ```
 
 \clearpage 
@@ -433,7 +438,7 @@ knitr::include_graphics(c("figures/maps/transition_total.png", "figures/maps/wor
 
 \input{tables/ranking_bygender}
 
-```{r tbl-gender, results = "asis", fig.pos='H',}
+```{r tbl-gender, results = "asis"}
 ```
 
 \clearpage
@@ -454,10 +459,10 @@ knitr::include_graphics(c("figures/maps/diff_transition.png", "figures/maps/diff
 ## Robustness {-#altscores .unlisted}
 \markboth{Robustness}{Appendix B3}
 
-```{r, fig-arithgeom, fig.align = "center", fig.height=3.5, fig.pos='H', fig.cap="Comparison of aggregation methods"}
+```{r, fig-arithgeom, fig.align = "center", fig.height=3.5, fig.cap="Comparison of aggregation methods"}
 ```
 
-```{r, fig-imputedraw, fig.align = "center", fig.height=3.5, fig.pos='H', fig.cap="YLILI with and without imputation"}
+```{r, fig-imputedraw, fig.align = "center", fig.height=3.5, fig.cap="YLILI with and without imputation"}
 ```
 
 <!-- \begin{landscape} -->
