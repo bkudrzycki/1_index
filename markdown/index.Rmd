@@ -14,12 +14,12 @@ jel: [E24, E26, C43] # E24 Employment, E26 Informal Economy, C43 Index Numbers \
 classoption: a4paper, 12pt
 geometry: left=3cm, right=3cm
 bibliography: index.bib
-csl: 'apa-no-ampersand.csl'
 output: 
   bookdown::pdf_document2:
     latex_engine: xelatex
+    citation_package: biblatex
     template: template.tex
-    extra_dependencies: ["flafter", "placeins", "changepage", "multirow", "array", "adjustbox", "longtable", "pifont", "fancyhdr", "pdflscape", "fancyhdr"]
+    extra_dependencies: ["flafter", "placeins", "changepage", "multirow", "array", "adjustbox", "longtable", "pifont", "fancyhdr", "pdflscape", "threeparttable"]
     fig_caption: yes
 ---
 
@@ -235,7 +235,7 @@ First, we test our claim that the unemployment rate is an incomplete measure of 
 
 The next two columns of Table \@ref(tab:tbl-macrocorr) show the correlation between the YLILI score and two indicators of economic prosperity, the Human Development Index (HDI) score and GDP per capita. The HDI is a composite index measured on a scale of 0 to 1 that combines indicators of national life expectancy, per capita income and educational attainment [@undp1990]. Given that educational attainment accounts for a third of both the HDI and the YLILI, it is unsurprising that they are significantly correlated. A one percent increase in the HDI score is associated with about a 0.612 percent increase in the YLILI score.
 
-Existing indices of youth well-being, such as Youth Progress Index and the Youth Development Index, have been shown to be closely correlated with GDP per capita, especially at lower income levels [@sen2016; lisney2018]. Thus, one might expect youth labor market conditions also to rise with incomes and productivity. We test this assumption directly by regressing YLILI on the logarithm of GDP per capita. Column (3) of Table \@ref(tab:tbl-macrocorr) shows that a 1 percent increase in GDP per capita is indeed associated with a 6.4 percent increase in labor market performance for youth. The relationship between the two measures is shown in Figure \@ref(fig:fig-indexgdp) in the Appendix. However, we note that the correlation with GDP is much weaker for the YLILI ( R$^(2)=$ 0.377) than for the more holistic Youth Progress Index (R$^(2)$=0.857). 
+Existing indices of youth well-being, such as Youth Progress Index and the Youth Development Index, have been shown to be closely correlated with GDP per capita, especially at lower income levels [@sen2016; @lisney2018]. Thus, one might expect youth labor market conditions also to rise with incomes and productivity. We test this assumption directly by regressing YLILI on the logarithm of GDP per capita. Column (3) of Table \@ref(tab:tbl-macrocorr) shows that a 1 percent increase in GDP per capita is indeed associated with a 6.4 percent increase in labor market performance for youth. The relationship between the two measures is shown in Figure \@ref(fig:fig-indexgdp) in the Appendix. However, we note that the correlation with GDP is much weaker for the YLILI ( R$^2=$ 0.377) than for the more holistic Youth Progress Index (R$^2$=0.857). 
 
 ## The YLILI and Demographic Change
 
@@ -309,15 +309,11 @@ How can the YLILI help policymakers improve youth labor markets in developing co
 
 Finally, the YLILI shows the usefulness of detailed, gender-disaggregated data, and could still be vastly improved with more comprehensive national statistics. The fact that we were unable to generate a score for 25 countries---almost a third of the sample----despite relatively relaxed requirements (e.g., including data up to a decade old), highlights the data scarcity which makes the study of youth labor markets a challenge [@jerven2013]. We note that even major compilers of international statistics such as [Our World in Data](https://ourworldindata.org/), which have conducted numerous detailed analyses of topics related to the SDGs, do not have a page dedicated to the youth employment crisis at this time. Improving statistical capacity would thus be a major step towards an improved YLILI and towards more effective policies addressing the youth employment challenge.
 
-\clearpage
-
-# References {.unnumbered}
+\newpage
 \markboth{References}{References}
-\noindent
+\printbibliography[segment=\therefsegment,heading=subbibintoc,title={References}]
 
-<div id="refs"></div>
-
-\clearpage
+\newpage
 
 # Appendix A3 {-#appendix-a}
 \markboth{Appendix A3}{Appendix A3}
@@ -353,7 +349,7 @@ Geometric means are more appropriate for comparing items measured on different s
 ```{r, fig-cormat, fig.align = "center", fig.height=8, fig.scap = "Correlation matrix", fig.cap="Correlation matrix (× = insignificant at p < 0.05)"}
 ```
 
-\clearpage
+\newpage
 
 ## Demographics by Income Level {-#demographics .unlisted}
 
@@ -365,7 +361,7 @@ knitr::include_graphics(c("figures/stacked_highincome.png", "figures/stacked_low
 knitr::include_graphics(c("figures/pp_ssa.png", "figures/pp_world.png"))
 ```
 
-\clearpage
+\newpage
 
 # Appendix B3 {-#appendix-b}
 \markboth{Appendix B3}{Appendix B3}
@@ -432,7 +428,7 @@ knitr::include_graphics(c("figures/maps/transition_total.png", "figures/maps/wor
 ```{r, fig-spider, out.width = '49%', fig.show='hold', fig.cap="Spider charts by world region"}
 ```
 
-\clearpage 
+\newpage
 ## The gender YLILI {-#genderylili .unlisted}
 \markboth{The gender YLILI}{Appendix B3}
 
@@ -441,7 +437,7 @@ knitr::include_graphics(c("figures/maps/transition_total.png", "figures/maps/wor
 ```{r tbl-gender, results = "asis"}
 ```
 
-\clearpage
+\newpage
 
 \input{tables/dimensions_bygender}
 
@@ -454,7 +450,7 @@ knitr::include_graphics("figures/maps/diff_YLILI.png")
 knitr::include_graphics(c("figures/maps/diff_transition.png", "figures/maps/diff_working_conditions.png", "figures/maps/diff_education.png"))
 ```
 
-\clearpage
+\newpage
 
 ## Robustness {-#altscores .unlisted}
 \markboth{Robustness}{Appendix B3}
@@ -467,6 +463,11 @@ knitr::include_graphics(c("figures/maps/diff_transition.png", "figures/maps/diff
 
 <!-- \begin{landscape} -->
 
-<!-- \input{tables/altscores.tex} -->
+\input{tables/altscores.tex}
 
 <!-- \end{landscape} -->
+
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\setcounter{section}{0}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+\setcounter{subsection}{0}

@@ -60,16 +60,6 @@ $endfor$
 
 \linespread{1.05} % Palatino needs more leading
 
-
-\setmonofont{FiraMono}[
-  Scale          = MatchLowercase,
-  Extension      = .otf,
-  UprightFont    = *-Regular,
-  BoldFont       = *-Bold,
-  Numbers        = {Lining, Monospaced}
-]
-
-
 % Figures are typeset in Fira but nothing is supposed to be in sans
 % here. But just in case, use Fira here as well. This requires the
 % same package as dependency the Mono variant anyway.
@@ -233,7 +223,7 @@ $if(natbib)$
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
 $endif$
 $if(biblatex)$
-\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+\usepackage[style=authoryear,doi=false,isbn=false,url=false]{biblatex}
 $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
@@ -323,33 +313,14 @@ $endif$
 
 $for(include-before)$
 $include-before$
-
 $endfor$
+
 $if(has-frontmatter)$
 \mainmatter
 $endif$
+
 $body$
 
-$if(has-frontmatter)$
-\backmatter
-$endif$
-$if(natbib)$
-$if(bibliography)$
-$if(biblio-title)$
-$if(has-chapters)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
-  \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-
-$endif$
-$endif$
-$if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
-$endif$
 $for(include-after)$
 $include-after$
 
