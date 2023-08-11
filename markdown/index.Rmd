@@ -461,11 +461,11 @@ knitr::include_graphics(c("figures/maps/diff_transition.png", "figures/maps/diff
 ```{r, fig-imputedraw, fig.align = "center", fig.height=3.5, fig.cap="YLILI with and without imputation"}
 ```
 
-<!-- \begin{landscape} -->
+\begin{landscape}
 
 \input{tables/altscores.tex}
 
-<!-- \end{landscape} -->
+\end{landscape}
 
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 \setcounter{section}{0}
