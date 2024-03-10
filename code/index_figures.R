@@ -27,11 +27,11 @@ ggplot(df, aes(x = inform_r, y = unemp_r)) +
   xlab("Youth informality rate") +
   ylab("Youth unemployment rate") +
   theme_minimal() +
-  geom_smooth(method = "lm", aes(color = inc_level, linetype = inc_level), se = F, size=0.5) +
-  scale_linetype_manual(name = "World Bank Income Classification", labels = c("LIC/LMIC", "HIC/UMIC"),
+  geom_smooth(method = "lm", aes(color = inc_level, linetype = inc_level), se = F, linewidth=0.5) +
+  scale_linetype_manual(name = "World Bank Income Classification", labels = c("HIC/UMIC", "LIC/LMIC" ),
                         values = c("LIC/LMIC" = 1, "HIC/UMIC" = 2)) +
-  scale_colour_manual(name = "World Bank Income Classification", labels = c("LIC/LMIC", "HIC/UMIC"), values = c("gray", "black")) +
-  scale_shape_manual(name = "World Bank Income Classification", labels = c("LIC/LMIC", "HIC/UMIC"), values=c(17, 16)) +
+  scale_colour_manual(name = "World Bank Income Classification", labels = c("HIC/UMIC", "LIC/LMIC" ), values = c("gray", "black")) +
+  scale_shape_manual(name = "World Bank Income Classification", labels = c("HIC/UMIC", "LIC/LMIC" ), values=c(17, 16)) +
   #geom_text_repel(aes(label=country_code),size = 3)
   labs(linetype="World Bank Income Classification") +
   theme(legend.position="top")
@@ -318,6 +318,31 @@ ggplot(df, aes(x = index_mean, y = index_geom, label = country_code)) +
   theme_minimal() +
   scale_color_viridis_d(option = "inferno", end = 0.7) +
   geom_text_repel(aes(label=country_code),size = 3)
+
+
+
+## ---- fig-infneet --------
+
+neet_r <- neet %>% 
+  filter(sex.label == "Sex: Total") %>% 
+  group_by(ref_area.label) %>%
+  top_n(1, time) %>% dplyr::select(ref_area.label, neet_r = obs_value)
+
+df <- left_join(all_countries, neet_r, by ="ref_area.label") %>% left_join(., inform_r, by ="ref_area.label")
+
+ggplot(df, aes(x = inform_r, y = neet_r)) +
+  geom_point(aes(shape = inc_level, color = inc_level)) +
+  xlab("Youth informality rate") +
+  ylab("Youth NEET rate") +
+  theme_minimal() +
+  geom_smooth(method = "lm", aes(color = inc_level, linetype = inc_level), se = F, linewidth=0.5) +
+  scale_linetype_manual(name = "World Bank Income Classification", labels = c("HIC/UMIC", "LIC/LMIC" ),
+                        values = c("LIC/LMIC" = 1, "HIC/UMIC" = 2)) +
+  scale_colour_manual(name = "World Bank Income Classification", labels = c("HIC/UMIC", "LIC/LMIC" ), values = c("gray", "black")) +
+  scale_shape_manual(name = "World Bank Income Classification", labels = c("HIC/UMIC", "LIC/LMIC" ), values=c(17, 16)) +
+  #geom_text_repel(aes(label=country_code),size = 3)
+  labs(linetype="World Bank Income Classification") +
+  theme(legend.position="top")
 
 
 

@@ -278,6 +278,22 @@ $endif$
 }
 \date{$date$}
 
+% Set up highlights (for corrections)
+\usepackage{soul}
+
+\renewcommand{\cite}[1]{\mbox{\autocite{#1}}}
+
+\usepackage[color=white]{todonotes}
+
+\newcommand{\hlc}[2][yellow]{{%
+    \colorlet{foo}{#1}%
+    \sethlcolor{foo}\hl{#2}}%
+}
+
+%\renewcommand{\hl}[1]{#1}
+%\newcommand{\hlc}[2][color]{}
+%\usepackage[disable]{todonotes}
+
 \begin{document}
 $if(has-frontmatter)$
 \frontmatter
